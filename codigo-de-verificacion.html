@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificación de Código - AgroGest</title>
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/codigo-de-verificacion.css">
+</head>
+<body class="bg-white text-dark d-flex flex-column min-vh-100">
+
+    <!-- Header -->
+    <header class="container py-3 d-flex align-items-center" style="max-width: 760px; height: 120px;">
+        <div class="logo-header me-3">
+            <img src="img/Logo.jpg" alt="Logo AgroGest" width="70" height="70" class="rounded-circle object-fit-contain">
+        </div>
+        <div class="titulo-logo d-flex flex-column" style="line-height: 1.2;">
+            <h2 class="text-warning fw-bold fs-3 mb-0">AgroGest</h2>
+            <h3 class="fs-6 text-secondary mb-0">Distribuciones</h3>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="container my-auto" style="max-width: 760px;">
+        <div class="row g-0 bg-white rounded-end-4 shadow overflow-hidden" style="border-radius: 0 18px 18px 18px; min-height: 400px;">
+            
+            <!-- Imagen Central (Columna Izquierda) -->
+            <div class="col-md-5 d-flex justify-content-center align-items-center border-end border-warning overflow-hidden p-0" style="background-color: #fff;">
+                <img src="img/imagen central verificar codigo.png" alt="imagen codigo de verificacion" class="w-100 h-100 object-fit-cover">
+            </div>
+
+            <!-- Formulario (Columna Derecha) -->
+            <div class="col-md-7 d-flex flex-column justify-content-center text-center p-4 p-md-5">
+                <h1 class="fs-4 fw-bold text-warning mb-2">Verificación de Código</h1>
+                <p class="text-secondary small mb-1">Hemos enviado un código de 4 dígitos a tu correo:</p>
+                <p class="text-secondary small fw-semibold mb-3">ej****@gmail.com</p>
+
+                <!-- Inputs de Código -->
+                <div class="d-flex justify-content-center gap-3 my-3">
+                    <input type="text" maxlength="1" inputmode="numeric" aria-label="primer dígito" class="form-control text-center fs-4 fw-bold p-0 rounded-3" style="width: 50px; height: 55px;">
+                    <input type="text" maxlength="1" inputmode="numeric" aria-label="segundo dígito" class="form-control text-center fs-4 fw-bold p-0 rounded-3" style="width: 50px; height: 55px;">
+                    <input type="text" maxlength="1" inputmode="numeric" aria-label="tercer dígito" class="form-control text-center fs-4 fw-bold p-0 rounded-3" style="width: 50px; height: 55px;">
+                    <input type="text" maxlength="1" inputmode="numeric" aria-label="cuarto dígito" class="form-control text-center fs-4 fw-bold p-0 rounded-3" style="width: 50px; height: 55px;">
+                </div>
+
+                <!-- Botón -->
+                <button type="button" class="btn btn-warning text-white fw-bold w-100 py-2 rounded-3 shadow-sm mb-3" style="background-color: #d28c00; border-color: #d28c00;">
+                    Verificación e Iniciar Sesión
+                </button>
+
+                <!-- Enlaces -->
+                <p class="small text-secondary mb-2">
+                    ¿No recibiste el código? <a href="#" class="text-warning fw-bold text-decoration-none">Reenviar código</a>
+                </p>
+                <a href="#" class="text-warning small fw-bold text-decoration-none">Volver a la recuperación</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Sección de Seguridad -->
+    <section class="container mt-4 mb-5 text-start" style="max-width: 760px;">
+        <p class="small text-dark fw-bold mb-1">Tu información está protegida</p>
+        <p class="small text-muted mb-0">Utilizamos medidas de seguridad para proteger tus datos</p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-white text-center py-4 mt-auto" style="background-color: #d28c00; font-size: 11px; line-height: 1.6;">
+        <div class="container">
+            <p class="mb-1">Desarrollado como proyecto de formación del SENA - Servicio Nacional de Aprendizaje, programa tecnólogo en Análisis y Desarrollo de Software (ADSO).</p>
+            <p class="mb-1">&copy; 2026 AgroGest Distribuciones. Todos los derechos reservados.</p>
+            <p class="mb-0">Proyecto desarrollado con fines académicos</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
