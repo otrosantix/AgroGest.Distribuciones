@@ -1,0 +1,259 @@
+  /* Reseteo basico */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- HEADER --- */
+.navbar {
+    background-color: #1a1a1a;
+    padding: 12px 0;
+}
+
+.navbar-brand {
+    color: white;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-circle {
+    background-color: #E6B325;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1a1a1a;
+    font-size: 1.2rem;
+}
+
+.texto-dorado { color: #E6B325; }
+.texto-blanco{color: white;}
+
+.brand-text span {
+    display: block;
+    font-size: 0.6rem;
+    letter-spacing: 1.5px;
+    margin-top: -3px;
+    color: #E6B325;
+}
+
+
+.nav-link {
+    color: #a0a0a0 !important;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin: 0 12px;
+    padding-bottom: 4px;
+}
+
+.nav-link.active {
+    color: #E6B325 !important;
+    border-bottom: 2px solid #E6B325;
+}
+
+.btn-admin {
+    background-color: #2a2a2a;
+    border: 1px solid #E6B325;
+    color: #E6B325;
+    border-radius: 20px;
+    padding: 6px 16px;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* --- CONTENIDO --- */
+.main-content {
+    flex: 1;
+    padding: 40px 0;
+}
+
+.migas {
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+}
+
+.migas a {
+    color: #8c9ba5;
+    text-decoration: none;
+}
+
+.migas span {
+    color: #111;
+    font-weight: 500;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 2.2rem;
+    color: #111;
+    letter-spacing: -0.5px;
+}
+
+.subtitulo {
+    color: #6c757d;
+    font-size: 0.95rem;
+}
+
+/* Botones de accion (sin fondo) */
+.btn-accion {
+    background: none;
+    border: 1px solid #b3b0b0;
+    border-radius: 10px;
+    color: #E6B325;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-left: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px;
+}
+.btn-accion2 {
+    background: #E6B325;
+    border: 1px solid #b3b0b0;
+    border-radius: 10px;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-left: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px;
+}
+.fa-download{
+    color: #111
+}
+
+.btn-accion:hover { color: #E6B325; }
+
+/* --- TABLA --- */
+.tabla-container {
+    margin-top: 30px;
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+/* Quitar bordes negros feos y poner los grises sutiles */
+.table thead th {
+    background-color: #ffffff;
+    border-bottom: 1px solid #E6B325;
+    border-top: 1px;
+    color: #888;
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 15px 10px;
+}
+
+.table tbody td {
+    vertical-align: middle;
+    padding: 20px 10px;
+    border-bottom: 1px solid #eaeaea;
+    border-top: 1px;
+    font-size: 0.9rem;
+    color: #444;
+}
+
+/* El cuadrito gris de los iconos */
+.icon-box {
+    width: 40px;
+    height: 40px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #aaa;
+    font-size: 1.1rem;
+}
+.fa-seedling{
+    color: #111;
+}
+.fa-droplet{
+    color: #111;
+}
+.fa-spray-can{
+    color: #111;
+}
+
+.producto-nombre {
+    font-weight: 700;
+    display: block;
+    font-size: 0.95rem;
+    color: #E6B325;
+}
+
+.producto-codigo {
+    font-size: 0.8rem;
+    color: #999;
+}
+
+/* ESTADOS (Solo texto con color, sin fondo) */
+.estado-texto {
+    
+    font-weight: 600;
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.verde { 
+    background-color: #9adba9;
+    color: #28a745; 
+    border-radius: 20px;    
+}
+
+.rojo { 
+    background-color: #ec9090;
+    color: #dc3545;
+    border-radius: 20px;    
+ }
+.naranja { 
+    background-color: #ebc8a8;
+    color: #f5a623; 
+    border-radius: 20px;  
+}
+
+/* Boton configurar */
+.btn-config {
+    border: 1px solid #d8d4d4;
+    border-radius: 10px;
+    color: #E6B325;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-config:hover { color: #9c9a9a; }
+.fa-gear{
+    color: #575757;
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: #E6B325;
+    color: white;
+    text-align: center;
+    padding: 25px 0;
+    font-size: 0.75rem;
+    margin-top: auto;
+}
+
+footer p { margin: 0; line-height: 1.6; opacity: 0.95; }

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Inventario Administrador</title>
+    <link rel='stylesheet' href='css/Inventario-admin.css'>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts (Inter) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+
+<!-- Barra de navegacion -->
+<nav class="navbar navbar-expand-lg">
+<div class="container">
+<a class="navbar-brand" href="#">
+<div class="logo-circle">
+    <img src="img/Logo.jpg">
+</div>
+<div class="brand-text">
+<span class="texto-dorado">AgroGest</span>
+<span class="text-white">DISTRIBUCIONES</span>
+</div>
+</a>
+
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+<span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="menu">
+<ul class="navbar-nav mx-auto">
+<li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
+<li class="nav-item"><a class="nav-link" href="#">Productos</a></li>
+<li class="nav-item"><a class="nav-link active" href="#">Inventario</a></li>
+<li class="nav-item"><a class="nav-link" href="#">Ventas</a></li>
+<li class="nav-item"><a class="nav-link" href="#">Pedidos</a></li>
+<li class="nav-item"><a class="nav-link" href="#">Reportes</a></li>
+<li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
+</ul>
+<div>
+<button class="btn-admin">Administrador <i class="fa-regular fa-user"></i></button>
+</div>
+</div>
+</div>
+</nav>
+
+<!-- Contenido principal -->
+<div class="container main-content">
+
+<!-- Migas de pan -->
+<div class="migas">
+<a href="#">Inicio</a> 
+<i class="fa-solid fa-chevron-right" style="font-size: 8px; margin: 0 8px; color: #E6B325;"></i> 
+<span style="color: #E6B325;">Inventario</span>
+</div>
+
+<div class="row align-items-center mb-4">
+<div class="col-md-7">
+<h1><strong> Control de </strong><span class="texto-dorado"><strong> Inventario </strong></span></h1>
+<p class="subtitulo">Administra y ajusta el stock de tus productos en tiempo real.</p>
+</div>
+
+<div class="col-md-5 text-end">
+<button class="btn-accion"><i class="fa-solid fa-download"></i> Exportar reporte</button>
+<button class="btn-accion2"><i class="fa-solid fa-plus"></i> Nuevo ingreso</button>
+</div>
+</div>
+
+<!-- Tabla de productos -->
+<div class="table-responsive tabla-container">
+<table class="table">
+<thead>
+<tr>
+<th style="width: 30%; color: black;">Producto</th>
+<th style="width: 15%; color: black;">Categoría</th>
+<th style="width: 15%; color: black;">Stock Actual</th>
+<th style="width: 15%; color: black;">Stock Mín.</th>
+<th style="width: 15%; color: black;">Estado</th>
+<th style="width: 10%; color: black;">Acciones</th>
+</tr>
+</thead>
+<tbody>
+
+<!-- Fila 1 -->
+<tr>
+<td>
+<div class="d-flex align-items-center gap-3">
+<div class="icon-box"><i class="fa-solid fa-seedling"></i></div>
+<div>
+<span class="producto-nombre">Semilla de Maíz Híbrido</span>
+<span class="producto-codigo">Cod: PRO-0001</span>
+</div>
+</div>
+</td>
+<td>Semillas</td>
+<td class="fw-bold">120 <small class="text-muted fw-normal">Kg</small></td>
+<td class="text-muted">50 Kg</td>
+<td>
+<span class="estado-texto verde"><i class="fa-solid fa-check-circle"></i> Estable</span>
+</td>
+<td>
+<a href="#" class="btn-config"><i class="fa-solid fa-gear"></i> Configurar</a>
+</td>
+</tr>
+
+<!-- Fila 2 -->
+<tr>
+<td>
+<div class="d-flex align-items-center gap-3">
+<div class="icon-box"><i class="fa-solid fa-droplet"></i></div>
+<div>
+<span class="producto-nombre">Fertilizante Líquido</span>
+<span class="producto-codigo">Cod: PRO-0103</span>
+</div>
+</div>
+</td>
+<td>Fertilizantes</td>
+<td class="fw-bold">25 <small class="text-muted fw-normal">L</small></td>
+<td class="text-muted">40 L</td>
+<td>
+<span class="estado-texto rojo"><i class="fa-solid fa-triangle-exclamation"></i> Bajo stock</span>
+</td>
+<td>
+<a href="#" class="btn-config"><i class="fa-solid fa-gear"></i> Configurar</a>
+</td>
+</tr>
+
+<!-- Fila 3 -->
+<tr>
+<td>
+<div class="d-flex align-items-center gap-3">
+<div class="icon-box"><i class="fa-solid fa-spray-can"></i></div>
+<div>
+<span class="producto-nombre">Pulverizadora Manual</span>
+<span class="producto-codigo">Cod: PRO-0052</span>
+</div>
+</div>
+</td>
+<td>Herramientas</td>
+<td class="fw-bold">8 <small class="text-muted fw-normal">Unidades</small></td>
+<td class="text-muted">5 Unidades</td>
+<td>
+<span class="estado-texto naranja"><i class="fa-solid fa-circle-exclamation"></i> Próximo a agotar</span>
+</td>
+<td>
+<a href="#" class="btn-config"><i class="fa-solid fa-gear"></i> Configurar</a>
+</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+</div>
+
+<!-- Footer -->
+<footer>
+<div class="container">
+<p>Desarrollado como proyecto de formación del SENA – Servicio Nacional de Aprendizaje, programa Tecnólogo en Análisis y Desarrollo de Software (ADSO).</p>
+<p>© 2026 AgroGest Distribuidores. Todos los derechos reservados. Proyecto desarrollado con fines académicos.</p>
+</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
