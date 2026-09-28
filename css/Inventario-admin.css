@@ -31,8 +31,13 @@ body {
     justify-content: center;
     color: #1a1a1a;
     font-size: 1.2rem;
+    overflow: hidden; /* Esto hace que la imagen no se salga del circulo */
 }
-
+.logo-circle img {
+            width: 100%;      /* La imagen ocupa todo el ancho del circulo */
+            height: 100%;     /* La imagen ocupa todo el alto del circulo */
+            object-fit: cover;/* La imagen se recorta para no deformarse */
+        }
 .texto-dorado { color: #E6B325; }
 .texto-blanco{color: white;}
 
