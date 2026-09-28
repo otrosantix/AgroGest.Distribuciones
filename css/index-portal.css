@@ -1,0 +1,287 @@
+
+:root {
+    --negro: #0b0b0b;
+    --dorado: #d89500;
+    --dorado-oscuro: #b87800;
+    --blanco: #ffffff;
+    --gris-fondo: #fafafa;
+    --gris-texto: #687282;
+    --gris-claro: #dddddd;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--blanco);
+    color: var(--negro);
+}
+
+
+.navbar-agrogest {
+    background-color: var(--negro);
+    min-height: 56px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.navbar-agrogest .navbar-brand img {
+    object-fit: contain;
+}
+
+.titulo-logo {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+}
+
+.titulo-logo-nombre {
+    color: var(--dorado);
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.titulo-logo-sub {
+    color: var(--dorado);
+    font-size: 9px;
+    text-transform: uppercase;
+    margin-top: 2px;
+}
+
+.navbar-agrogest .nav-link {
+    color: #d5d5d5;
+    font-size: 12px;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.navbar-agrogest .nav-link:hover,
+.navbar-agrogest .nav-link.active {
+    color: var(--dorado);
+}
+
+.navbar-agrogest .nav-link:hover {
+    transform: translateY(-2px);
+}
+
+/* Subrayado dorado en el enlace activo */
+.navbar-agrogest .nav-link.active {
+    border-bottom: 2px solid var(--dorado);
+}
+
+.navbar-agrogest .navbar-toggler {
+    border-color: var(--dorado);
+}
+
+.navbar-agrogest .navbar-toggler-icon {
+    filter: invert(58%) sepia(90%) saturate(900%) hue-rotate(10deg);
+}
+
+/* Botón con borde dorado (Iniciar sesión / Administrador) */
+.btn-sesion {
+    border: 1px solid var(--dorado);
+    border-radius: 20px;
+    padding: 6px 25px;
+    color: var(--dorado);
+    font-size: 11px;
+    background: transparent;
+    transition: 0.3s;
+}
+
+.btn-sesion:hover,
+.btn-sesion:focus,
+.btn-sesion.show {
+    background-color: var(--dorado);
+    color: var(--negro);
+    border-color: var(--dorado);
+}
+
+/* Menú desplegable del administrador */
+.dropdown-menu-agrogest {
+    background-color: var(--negro);
+    border: 1px solid var(--dorado);
+    font-size: 12px;
+}
+
+.dropdown-menu-agrogest .dropdown-header {
+    color: var(--dorado);
+}
+
+.dropdown-menu-agrogest .dropdown-item {
+    color: #d5d5d5;
+}
+
+.dropdown-menu-agrogest .dropdown-item:hover {
+    background-color: var(--dorado);
+    color: var(--negro);
+}
+
+.dropdown-menu-agrogest .dropdown-divider {
+    border-color: #333;
+}
+
+/* ---------- Sección principal ---------- */
+.hero {
+    padding-top: 70px;
+    padding-bottom: 50px;
+}
+
+.hero-etiqueta {
+    margin: 0 0 8px 0;
+    color: var(--dorado);
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.hero-titulo {
+    margin: 0 0 20px 0;
+    color: var(--dorado);
+    font-size: 35px;
+    font-weight: bold;
+    letter-spacing: -1px;
+}
+
+.hero-titulo strong {
+    color: #131b2b;
+}
+
+/* Título del administrador: oscuro con palabras doradas */
+.hero-titulo-admin {
+    color: #131b2b;
+    font-size: 34px;
+    line-height: 1.2;
+}
+
+.texto-dorado {
+    color: var(--dorado);
+}
+
+.hero-texto {
+    max-width: 470px;
+    margin: 0;
+    color: var(--gris-texto);
+    font-size: 13px;
+    line-height: 1.65;
+}
+
+.hero-imagen {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 280px;
+}
+
+.hero-imagen img {
+    position: relative;
+    z-index: 1;
+    max-height: 500px;
+    object-fit: contain;
+}
+
+/* Círculo gris decorativo detrás de la imagen */
+.hero-imagen::before {
+    content: "";
+    position: absolute;
+    left: 5%;
+    top: 50%;
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    background-color: var(--gris-claro);
+    transform: translateY(-50%);
+    z-index: 0;
+}
+
+/* ---------- Accesos ---------- */
+.accesos {
+    background-color: var(--gris-fondo);
+    border-top: 1px solid #f3f3f3;
+    padding: 35px 0;
+}
+
+.acceso-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s;
+}
+
+.acceso-link:hover {
+    transform: translateY(-4px);
+}
+
+.acceso-icono {
+    width: 43px;
+    height: 43px;
+    margin: 0 auto 10px auto;
+    background-color: var(--dorado);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--negro);
+    font-size: 19px;
+}
+
+.acceso-titulo {
+    margin: 0;
+    color: #1d2430;
+    font-size: 13px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.acceso-titulo-admin {
+    font-size: 12px;
+}
+
+.acceso-desc {
+    margin: 6px auto 0 auto;
+    max-width: 170px;
+    color: var(--gris-texto);
+    font-size: 10px;
+    line-height: 1.4;
+}
+
+.acceso-linea {
+    display: block;
+    width: 18px;
+    height: 2px;
+    margin: 12px auto 0 auto;
+    background-color: var(--dorado);
+}
+
+/* ---------- Footer ---------- */
+.footer-agrogest {
+    background-color: var(--dorado);
+    color: var(--blanco);
+    padding: 20px 30px;
+}
+
+.footer-agrogest p {
+    margin: 0 0 4px 0;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+/* ---------- Ajustes para celular ---------- */
+@media (max-width: 991.98px) {
+    .navbar-agrogest .navbar-collapse {
+        padding: 10px 0;
+    }
+
+    .navbar-agrogest .nav-link.active {
+        border-bottom: none;
+    }
+
+    .hero {
+        padding-top: 45px;
+        text-align: center;
+    }
+
+    .hero-texto {
+        margin: 0 auto;
+    }
+
+    .hero-titulo {
+        font-size: 29px;
+    }
+}
