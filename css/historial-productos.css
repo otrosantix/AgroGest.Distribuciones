@@ -1,0 +1,107 @@
+:root {
+    --color-primary: #d4a017; /* Tono mostaza/oro */
+    --color-dark: #121212;
+}
+
+body {
+    background-color: #ffffff;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Navbar Oscura Forzada */
+.navbar-custom {
+    background-color: #121212 !important;
+}
+.navbar-custom .nav-link {
+    color: #ffffff !important;
+    font-weight: 500;
+}
+.navbar-custom .nav-link.active,
+.navbar-custom .nav-link:hover {
+    color: var(--color-primary) !important;
+}
+
+/* Botones personalizados */
+.btn-agro {
+    background-color: var(--color-primary);
+    color: #000;
+    font-weight: 600;
+    border: none;
+}
+.btn-agro:hover {
+    background-color: #b88a13;
+    color: #000;
+}
+.btn-outline-agro {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+    font-weight: 600;
+    background-color: transparent;
+}
+.btn-outline-agro:hover {
+    background-color: var(--color-primary);
+    color: #000;
+}
+
+/* Textos */
+.text-agro {
+    color: var(--color-primary) !important;
+}
+.text-dark-custom {
+    color: #212529;
+    font-weight: 700;
+}
+
+/* Breadcrumb / Ruta de navegación */
+.breadcrumb-agro {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+.breadcrumb-agro a {
+    color: #6c757d;
+    text-decoration: none;
+}
+.breadcrumb-agro a:hover {
+    color: var(--color-primary);
+}
+
+/* Tarjetas de filtros y contenedores */
+.filter-card {
+    border: 1px solid #eaeaea;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.01);
+}
+
+/* Gráfico simulado de tendencia de precios */
+.chart-container {
+    border: 1px dashed #ced4da;
+    border-radius: 12px;
+    background-color: #fafbfc;
+    position: relative;
+    min-height: 320px;
+}
+
+/* Línea de tendencia SVG */
+.trend-line {
+    fill: none;
+    stroke: var(--color-primary);
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.trend-point {
+    fill: var(--color-primary);
+    stroke: #ffffff;
+    stroke-width: 2;
+}
+/* ==========================================
+   Pie de Página (Footer)
+   ================================---------- */
+.footer-custom {
+    background-color: #c69214; /* Tono mostaza acorde al tema */
+    color: #ffffff;
+    width: 100%;
+}

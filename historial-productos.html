@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroGest - Historial de Precios de Compra</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Hoja de Estilos Externa -->
+    <link rel="stylesheet" href="css/historial-productos.css">
+</head>
+<body>
+
+    <!-- 1. BARRA DE NAVEGACIÓN -->
+    <nav class="navbar navbar-expand-lg navbar-custom px-4 py-3">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center text-white fw-bold" href="index.html">
+                <div class="bg-warning text-dark p-2 rounded-3 me-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                    <i class="bi bi-tree-fill fs-5"></i>
+                </div>
+                Agro<span class="text-agro">Gest</span>
+            </a>
+            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-3">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="productos.html">Productos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Inventario</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Ventas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Pedidos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Reportes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
+                </ul>
+                <div>
+                    <a href="#" class="btn btn-outline-warning rounded-pill px-4 text-warning">Administrador</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. CONTENIDO PRINCIPAL -->
+    <div class="container my-5">
+        
+        <!-- Ruta de navegación (Breadcrumb) -->
+        <div class="breadcrumb-agro mb-2 text-uppercase">
+            <a href="index.html">Productos</a> <span class="text-muted mx-1">></span> <span class="text-dark">Historial de precios de compra</span>
+        </div>
+
+        <!-- Título y Descripción -->
+        <div class="mb-4">
+            <h2 class="display-6 fw-bold text-dark-custom m-0">
+                Historial de <span class="text-agro">Precios de Compra</span>
+            </h2>
+            <p class="text-muted mt-1">Consulta la evolución de los costos de los insumos por proveedor para tomar mejores decisiones de compra.</p>
+        </div>
+
+        <!-- Sección de Filtros -->
+        <div class="filter-card p-4 mb-5">
+            <div class="row align-items-end g-3">
+                <div class="col-md-5">
+                    <label class="form-label fw-bold small text-muted">Producto / Insumo</label>
+                    <select class="form-select py-2">
+                        <option selected>Semilla de Maíz Híbrido</option>
+                        <option value="1">Fertilizante Líquido</option>
+                        <option value="2">Pulverizadora Manual</option>
+                        <option value="3">Semilla de Trigo</option>
+                    </select>
+                </div>
+                <div class="col-md-5">
+                    <label class="form-label fw-bold small text-muted">Proveedor</label>
+                    <select class="form-select py-2">
+                        <option selected>AgroPro S.A.S.</option>
+                        <option value="1">Distribuciones Agrícolas Ltda.</option>
+                        <option value="2">Insumos del Campo S.A.</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-agro w-100 py-2">
+                        <i class="bi bi-search me-1"></i> Consultar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección de Tendencia de Precios (Gráfico simulado con SVG) -->
+        <div class="filter-card p-4">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h5 class="fw-bold text-dark-custom m-0">Tendencia de precios (Últimos 6 meses)</h5>
+                <span class="badge bg-light text-dark border px-3 py-2 rounded-pill fw-bold text-agro border-warning">
+                    <i class="bi bi-graph-up-arrow me-1"></i> Tendencia: Alza constante
+                </span>
+            </div>
+
+            <!-- Gráfico limpio y responsivo con SVG -->
+            <div class="chart-container p-4 d-flex align-items-center justify-content-center">
+                <svg viewBox="0 0 800 250" class="w-100 h-100" style="max-height: 250px;">
+                    <!-- Líneas de guía horizontales de fondo -->
+                    <line x1="50" y1="50" x2="750" y2="50" stroke="#f1f3f5" stroke-width="1"></line>
+                    <line x1="50" y1="120" x2="750" y2="120" stroke="#f1f3f5" stroke-width="1"></line>
+                    <line x1="50" y1="190" x2="750" y2="190" stroke="#f1f3f5" stroke-width="1"></line>
+
+                    <!-- Línea de tendencia principal -->
+                    <polyline points="80,195 230,170 380,150 530,175 680,85" class="trend-line"></polyline>
+
+                    <!-- Puntos de datos (Nodos) -->
+                    <circle cx="80" cy="195" r="5" class="trend-point"></circle>
+                    <circle cx="230" cy="170" r="5" class="trend-point"></circle>
+                    <circle cx="380" cy="150" r="5" class="trend-point"></circle>
+                    <circle cx="530" cy="175" r="5" class="trend-point"></circle>
+                    <circle cx="680" cy="85" r="5" class="trend-point"></circle>
+
+                    <!-- Etiquetas de precios y meses -->
+                    <text x="80" y="175" font-size="12" font-weight="bold" fill="#333" text-anchor="middle">$5600</text>
+                    <text x="80" y="215" font-size="12" fill="#6c757d" text-anchor="middle">Ene</text>
+
+                    <text x="230" y="150" font-size="12" font-weight="bold" fill="#333" text-anchor="middle">$5750</text>
+                    <text x="230" y="215" font-size="12" fill="#6c757d" text-anchor="middle">Feb</text>
+
+                    <text x="380" y="130" font-size="12" font-weight="bold" fill="#333" text-anchor="middle">$5900</text>
+                    <text x="380" y="215" font-size="12" fill="#6c757d" text-anchor="middle">Mar</text>
+
+                    <text x="530" y="155" font-size="12" font-weight="bold" fill="#333" text-anchor="middle">$5800</text>
+                    <text x="530" y="215" font-size="12" fill="#6c757d" text-anchor="middle" font-weight="bold">Abr</text>
+
+                    <text x="680" y="65" font-size="12" font-weight="bold" fill="#333" text-anchor="middle">$6200</text>
+                    <text x="680" y="215" font-size="12" fill="#6c757d" text-anchor="middle">May</text>
+                </svg>
+            </div>
+        </div>
+
+    </div>
+        <!-- Pie de página institucional -->
+<footer class="footer-custom text-white py-4 mt-5">
+    <div class="container text-center">
+        <p class="mb-1 small">Desarrollado como proyecto de formación del SENA – Servicio Nacional de Aprendizaje, programa Tecnólogo en Análisis y Desarrollo de Software (ADSO).</p>
+        <p class="mb-1 small">&copy; 2026 AgroGest Distribuciones. Todos los derechos reservados.</p>
+        <p class="mb-0 small text-white-50">Proyecto desarrollado con fines académicos.</p>
+    </div>
+</footer>
+
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

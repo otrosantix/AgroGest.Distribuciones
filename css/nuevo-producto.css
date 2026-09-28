@@ -1,0 +1,124 @@
+/* ==========================================
+   Variables y Configuración General
+   ================================---------- */
+:root {
+    --agro-primary: #121212;   /* Fondo oscuro de la barra */
+    --agro-secondary: #d4a017; /* Tono mostaza/oro principal */
+    --agro-hover: #b88a13;     /* Mostaza oscuro para hover */
+    --bg-body: #f8f9fa;        /* Fondo general de la página */
+}
+
+body {
+    background-color: var(--bg-body);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: #212529;
+}
+
+/* ==========================================
+   Navegación
+   ================================---------- */
+.navbar-custom {
+    background-color: var(--agro-primary) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-custom .nav-link {
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.navbar-custom .nav-link:hover,
+.navbar-custom .nav-link.active {
+    color: var(--agro-secondary) !important;
+}
+
+/* ==========================================
+   Tipografía y Utilidades Personalizadas
+   ================================---------- */
+.text-agro {
+    color: var(--agro-secondary) !important;
+}
+
+.text-dark-custom {
+    color: #212529;
+    font-weight: 700;
+}
+
+/* ==========================================
+   Tarjetas y Formularios
+   ================================---------- */
+.form-card {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    border: 1px solid #eaeaea;
+}
+
+.form-control, .form-select {
+    padding: 0.65rem 1rem;
+    font-size: 0.95rem;
+    border-color: #dee2e6;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--agro-secondary);
+    box-shadow: 0 0 0 0.25rem rgba(212, 160, 23, 0.15);
+}
+
+/* ==========================================
+   Caja de Imagen / Upload Box
+   ================================---------- */
+.upload-box {
+    border: 2px dashed #dee2e6;
+    border-radius: 12px;
+    padding: 2rem 1rem;
+    text-align: center;
+    background-color: #fafbfc;
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.upload-box:hover {
+    border-color: var(--agro-secondary);
+}
+
+/* ==========================================
+   Botones Personalizados
+   ================================---------- */
+.btn-agro {
+    background-color: var(--agro-secondary);
+    color: #121212;
+    font-weight: 600;
+    border: none;
+    transition: background-color 0.2s ease;
+}
+
+.btn-agro:hover {
+    background-color: var(--agro-hover);
+    color: #121212;
+}
+
+.btn-outline-agro {
+    color: var(--agro-secondary);
+    border-color: var(--agro-secondary);
+    font-weight: 600;
+    background-color: transparent;
+}
+
+.btn-outline-agro:hover {
+    background-color: var(--agro-secondary);
+    color: #121212;
+}
+/* ==========================================
+   Pie de Página (Footer)
+   ================================---------- */
+.footer-custom {
+    background-color: #c69214; /* Tono mostaza acorde al tema */
+    color: #ffffff;
+    width: 100%;
+}
