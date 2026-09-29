@@ -1,0 +1,20 @@
+/* Dagiti custom styles para iti Bootstrap */
+:root {
+    --bs-warning: #d28c00;
+    --bs-warning-rgb: 210, 140, 0;
+}
+
+.btn-warning:hover {
+    background-color: #b97800 !important;
+    border-color: #b97800 !important;
+}
+
+/* Estilo para iti focus kadagiti input ti codigo */
+.form-control:focus {
+    border-color: #d28c00 !important;
+    box-shadow: 0 0 0 0.25rem rgba(210, 140, 0, 0.25) !important;
+}
+
+a:hover {
+    text-decoration: underline !important;
+}
