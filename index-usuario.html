@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Inicio - AgroGest</title>
+
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+   
+    <link rel="stylesheet" href="CSS/index-portal.css">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-agrogest">
+        <div class="container-fluid px-3 px-lg-4">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="index-usuario.html">
+                <img src="img/Logo.jpg" alt="Logo AgroGest" width="45" height="45">
+                <span class="titulo-logo">
+                    <span class="titulo-logo-nombre">AgroGest</span>
+                    <span class="titulo-logo-sub">Distribuciones</span>
+                </span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#menuPrincipal" aria-controls="menuPrincipal"
+                    aria-expanded="false" aria-label="Abrir menú">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="menuPrincipal">
+                <ul class="navbar-nav mx-auto gap-lg-4">
+                    <li class="nav-item"><a class="nav-link active" href="index-usuario.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="productos-usuario.html">Productos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contacto-usuario.html">Contacto</a></li>
+                </ul>
+
+                <a href="inicio-sesion.html" class="btn btn-sesion">Iniciar Sesión</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow-1">
+
+        <!-- Sección principal -->
+        <section class="hero container">
+            <div class="row align-items-center gy-4">
+                <div class="col-12 col-lg-6">
+                    <p class="hero-etiqueta">SEÑOR USUARIO</p>
+                    <h1 class="hero-titulo"><strong>BIENVENIDO A</strong> AGROGEST</h1>
+                    <p class="hero-texto">
+                        Señor usuario, bienvenido a AgroGest Distribuciones. En este apartado puede observar el
+                        catálogo de productos con el que contamos y descargar una copia en formato PDF para
+                        tenerlo a la mano. También tiene acceso a nuestro apartado de contacto, donde puede
+                        solicitar la cotización de un producto y evitar así la necesidad de ir de forma presencial.
+                    </p>
+                </div>
+
+                <div class="col-12 col-lg-6">
+                    <div class="hero-imagen">
+                        <img src="img/Imagen central dorado.png"
+                             alt="Ilustración AgroGest" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Accesos visuales (sin clic) -->
+        <section class="accesos">
+            <div class="container">
+                <div class="row justify-content-center text-center gy-4">
+                    <div class="col-12 col-sm-4 col-lg-3">
+                        <div class="acceso-icono"><i class="bi bi-box-seam"></i></div>
+                        <p class="acceso-titulo">I N I C I O</p>
+                        <span class="acceso-linea"></span>
+                    </div>
+                    <div class="col-12 col-sm-4 col-lg-3">
+                        <div class="acceso-icono"><i class="bi bi-cart3"></i></div>
+                        <p class="acceso-titulo">P R O D U C T O S</p>
+                        <span class="acceso-linea"></span>
+                    </div>
+                    <div class="col-12 col-sm-4 col-lg-3">
+                        <div class="acceso-icono"><i class="bi bi-person"></i></div>
+                        <p class="acceso-titulo">C O N T A C T O S</p>
+                        <span class="acceso-linea"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="footer-agrogest text-center">
+        <p>Desarrollado como proyecto de formación del SENA - Servicio Nacional de Aprendizaje, programa Tecnólogo en Análisis y Desarrollo de Software (ADSO).</p>
+        <p>&copy; 2026 AgroGest Distribuciones. Todos los derechos reservados.</p>
+        <p>Proyecto desarrollado con fines académicos.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
