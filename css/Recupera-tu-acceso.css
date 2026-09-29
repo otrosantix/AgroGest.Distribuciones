@@ -1,0 +1,40 @@
+:root {
+  --color-principal: #CA8A04;
+  --color-principal-hover: #A16F03;
+  --color-principal-rgb: 202, 138, 4;
+}
+
+/* Texto */
+.text-principal {
+  color: var(--color-principal) !important;
+}
+
+/* Fondo */
+.bg-principal {
+  background-color: var(--color-principal) !important;
+}
+
+/* Botón */
+.btn-principal {
+  background-color: var(--color-principal);
+  border-color: var(--color-principal);
+  color: #fff;
+}
+
+.btn-principal:hover,
+.btn-principal:focus {
+  background-color: var(--color-principal-hover);
+  border-color: var(--color-principal-hover);
+  color: #fff;
+}
+.btn-principal {
+    background-color: #CA8A04 !important;
+    border-color: #CA8A04 !important;
+    color: #fff !important;
+  }
+  .btn-principal:hover,
+  .btn-principal:focus {
+    background-color: #A16F03 !important;
+    border-color: #A16F03 !important;
+    color: #fff !important;
+  }
