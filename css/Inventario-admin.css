@@ -328,6 +328,16 @@ footer p { margin: 0; line-height: 1.6; opacity: 0.95; }
     font-weight: 700;
     color: #E6B325;
 }
+/* Campo para escribir la cantidad */
+.input-cantidad {
+    border: none;
+    outline: none;
+    text-align: center;
+    width: 100%;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #E6B325;
+}
 
 .btn-cantidad {
     background: #e7e7e5;

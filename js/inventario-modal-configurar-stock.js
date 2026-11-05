@@ -5,11 +5,10 @@ document.addEventListener("DOMContentLoaded", function () {
     // Variables que guardan lo que se está editando
     var filaActual = null;   // la fila (tr) del producto que se está configurando
     var stockActual = 0;     // stock actual del producto
-    var cantidadAjuste = 0;  // cantidad a ajustar
 
     // Elementos del modal
     var elementoModal = document.getElementById("modalStock");
-    var spanCantidad = document.getElementById("cantidad");
+    var inputCantidad = document.getElementById("cantidad"); // ahora es un input
     var tipoAjuste = document.getElementById("tipoAjuste");
 
     // 1. Al presionar "Configurar", llenamos el modal con los datos de esa fila
@@ -37,8 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("modalStockActual").textContent = stockActual;
 
             // Reiniciamos los campos
-            cantidadAjuste = 0;
-            spanCantidad.textContent = cantidadAjuste;
+            inputCantidad.value = 0;
             tipoAjuste.selectedIndex = 0;
 
             // Abrimos el modal con Bootstrap
@@ -46,31 +44,49 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // 2. Botones - y +
+    // 2. Botones - y + (cambian el número que hay escrito en el input)
     document.getElementById("btnSumar").addEventListener("click", function () {
-        cantidadAjuste = cantidadAjuste + 1;
-        spanCantidad.textContent = cantidadAjuste;
+        // Number(...) convierte el texto a número; si está vacío usamos 0
+        inputCantidad.value = (Number(inputCantidad.value) || 0) + 1;
     });
 
     document.getElementById("btnRestar").addEventListener("click", function () {
-        cantidadAjuste = cantidadAjuste - 1;
-        spanCantidad.textContent = cantidadAjuste;
+        var nuevo = (Number(inputCantidad.value) || 0) - 1;
+        if (nuevo < 0) {
+            nuevo = 0; // no dejamos números negativos
+        }
+        inputCantidad.value = nuevo;
     });
 
     // 3. Guardar el ajuste
     document.getElementById("btnGuardar").addEventListener("click", function () {
+        // Leemos el número que escribió el usuario
+        var cantidad = Number(inputCantidad.value);
+
         // Validaciones
         if (tipoAjuste.value === "") {
             alert("Selecciona el tipo de ajuste");
             return;
         }
-        if (cantidadAjuste === 0) {
+        if (inputCantidad.value === "" || cantidad < 0) {
+            alert("Escribe una cantidad válida");
+            return;
+        }
+        if (cantidad === 0 && tipoAjuste.value !== "correccion") {
             alert("La cantidad no puede ser 0");
             return;
         }
 
-        // Nuevo stock = stock actual + cantidad (si es negativa, resta)
-        var nuevoStock = stockActual + cantidadAjuste;
+        // Calculamos el nuevo stock según el tipo de ajuste
+        var nuevoStock = stockActual;
+        if (tipoAjuste.value ==="entrada") {
+            nuevoStock = stockActual + cantidad;   // entrada: suma
+        } else if (tipoAjuste.value === "salida") {
+            nuevoStock = stockActual - cantidad;   // salida: resta
+        } else {
+            nuevoStock = cantidad;                 // corrección: el stock pasa a ser ese número
+        }
+
         if (nuevoStock < 0) {
             alert("El stock no puede quedar negativo");
             return;
