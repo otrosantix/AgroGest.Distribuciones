@@ -160,6 +160,106 @@
 </div>
 </div>
 
+<!-- Modal Configurar Stock -->
+<div class="modal fade" id="modalStock" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content modal-stock">
+
+      <div class="modal-header border-0">
+        <h5 class="modal-title"><strong>Configurar <span class="texto-dorado">Stock</span></strong></h5>
+        <button type="button" class="btn-cerrar" data-bs-dismiss="modal">&times;</button>
+      </div>
+
+      <div class="modal-body">
+
+        <!-- Tarjeta con el producto -->
+        <div class="info-producto">
+          <div>
+            <span class="producto-nombre" id="modalNombre"></span>
+            <small id="modalDetalle"></small>
+          </div>
+          <span class="stock-grande" id="modalStockActual">0</span>
+        </div>
+
+        <!-- Tipo de ajuste -->
+        <label class="etiqueta">Tipo de ajuste *</label>
+        <select class="form-select campo" id="tipoAjuste">
+          <option value="" selected disabled>Selecciona el tipo de ajuste</option>
+          <option value="entrada">Entrada</option>
+          <option value="salida">Salida</option>
+          <option value="correccion">Corrección</option>
+        </select>
+
+        <!-- Cantidad -->
+        <label class="etiqueta">Cantidad a ajustar *</label>
+        <div class="caja-cantidad">
+          <button type="button" class="btn-cantidad" id="btnRestar">-</button>
+          <span id="cantidad">0</span>
+          <button type="button" class="btn-cantidad" id="btnSumar">+</button>
+        </div>
+        <small class="ayuda">Usa los botones para sumar (entrada) o restar (salida) unidades.</small>
+      </div>
+
+      <div class="modal-footer border-0">
+        <button type="button" class="btn-cancelar" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn-guardar" id="btnGuardar"><i class="fa-solid fa-floppy-disk"></i> Guardar ajuste</button>
+      </div>
+
+    </div>
+  </div>
+</div>l
+
+<!-- Modal Configurar Stock -->
+<div class="modal fade" id="modalStock" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content modal-stock">
+
+      <div class="modal-header border-0">
+        <h5 class="modal-title"><strong>Configurar <span class="texto-dorado">Stock</span></strong></h5>
+        <button type="button" class="btn-cerrar" data-bs-dismiss="modal">&times;</button>
+      </div>
+
+      <div class="modal-body">
+
+        <!-- Tarjeta con los datos del producto -->
+        <div class="info-producto">
+          <div>
+            <span class="producto-nombre" id="modalNombre"></span>
+            <small id="modalDetalle"></small>
+          </div>
+          <span class="stock-grande" id="modalStockActual">0</span>
+        </div>
+
+        <!-- Tipo de ajuste -->
+        <label class="etiqueta">Tipo de ajuste *</label>
+        <select class="form-select campo" id="tipoAjuste">
+          <option value=""selected disabled>Selecciona el tipo de ajuste</option>
+          <option value="entrada">Entrada</option>
+          <option value="salida">Salida</option>
+          <option value="correccion">Corrección</option>
+        </select>
+
+        <!-- Cantidad -->
+        <label class="etiqueta">Cantidad a ajustar *</label>
+        <div class="caja-cantidad">
+          <button type="button" class="btn-cantidad" id="btnRestar">-</button>
+          <span id="cantidad">0</span>
+          <button type="button" class="btn-cantidad" id="btnSumar">+</button>
+        </div>
+        <small class="ayuda">Usa los botones para sumar (entrada) o restar (salida) unidades.</small>
+      </div>
+
+      <div class="modal-footer border-0">
+        <button type="button" class="btn-cancelar" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn-guardar" id="btnGuardar"><i class="fa-solid fa-floppy-disk"></i> Guardar ajuste</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
 <!-- Footer -->
 <footer>
 <div class="container">
@@ -169,5 +269,6 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/inventario-modal-configurar-stock.js"></script>
 </body>
 </html>

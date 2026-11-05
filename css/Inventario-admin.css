@@ -217,26 +217,30 @@ h1 {
 }
 
 .verde { 
-    background-color: #9adba9;
-    color: #28a745; 
-    border-radius: 20px;    
+    background-color: #DCFCE7;
+    color: #15803D; 
+    border-radius: 20px;   
+    padding: 6px;
 }
 
 .rojo { 
-    background-color: #ec9090;
-    color: #dc3545;
-    border-radius: 20px;    
+    background-color: #FEE2E2;
+    color: #B91C1C;
+    border-radius: 20px;   
+    padding: 6px; 
  }
 .naranja { 
-    background-color: #ebc8a8;
-    color: #f5a623; 
+    background-color: #FEF3C7;
+    color: #B45309; 
     border-radius: 20px;  
+    padding: 6px;
 }
 
 /* Boton configurar */
 .btn-config {
+    padding: 4px;
     border: 1px solid #d8d4d4;
-    border-radius: 10px;
+    border-radius: 13px;
     color: #E6B325;
     font-weight: 600;
     font-size: 0.85rem;
@@ -262,3 +266,97 @@ footer {
 }
 
 footer p { margin: 0; line-height: 1.6; opacity: 0.95; }
+
+
+
+/*SEGUNDO APARTADO*/
+
+/* --- MODAL CONFIGURAR STOCK --- */
+.modal-stock {
+    border-radius: 16px;
+    padding: 10px 15px;
+}
+
+.btn-cerrar {
+    background: #f1f1f1;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+
+/* Tarjeta del producto */
+.info-producto {
+    background-color: #faf8f3;
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.info-producto small { color: #666; }
+
+.stock-grande {
+    color: #E6B325;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.etiqueta {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.campo {
+    margin-bottom: 20px;
+    font-size: 0.85rem;
+}
+
+/* Caja con los botones - y + */
+.caja-cantidad {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 8px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #E6B325;
+}
+
+.btn-cantidad {
+    background: #e7e7e5;
+    color: #E6B325;
+    border: none;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    font-weight: 700;
+}
+
+.ayuda {
+    color: hsl(0, 0%, 0%);
+    font-size: 0.75rem;
+}
+
+.btn-cancelar {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 8px 20px;
+    font-weight: 600;
+}
+
+.btn-guardar {
+    background: #E6B325;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 20px;
+    font-weight: 600;
+}
