@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Centro de Reportes | AgroGest Distribuciones</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/reportes.css">
+</head>
+<body>
+
+  <!-- ENCABEZADO -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="index.html" class="brand" aria-label="AgroGest Distribuciones, inicio">
+        <span class="brand__logo"><img src="img/Logo.jpg" alt="Logo AgroGest"></span>
+        <span class="brand__text">
+          <strong>AgroGest</strong>
+          <small>DISTRIBUCIONES</small>
+        </span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mainNav">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav" id="mainNav" aria-label="Navegación principal">
+        <a href="index.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a href="Inventario-admin.html">Inventario</a>
+        <a href="#">Ventas</a>
+        <a href="#">Pedidos</a>
+        <a href="reportes.html" class="is-active" aria-current="page">Reportes</a>
+        <a href="#">Contacto</a>
+      </nav>
+
+      <a href="perfil.html" class="admin-btn">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></svg>
+        Administrador
+      </a>
+    </div>
+  </header>
+
+  <!-- CONTENIDO -->
+  <main class="main">
+    <nav class="breadcrumb" aria-label="Ruta de navegación">
+      <a href="index.html">Inicio</a>
+      <span aria-hidden="true">»</span>
+      <span class="breadcrumb__current">Centro de Reportes</span>
+    </nav>
+
+    <h1 class="title">Centro de <span>Reportes</span></h1>
+    <p class="subtitle">Visualiza, analiza y descarga la información clave de tu negocio agrícola.</p>
+
+    <!-- FILTROS -->
+    <form class="filters" id="filtersForm">
+      <label class="date-field">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        <span>Desde:</span>
+        <input type="date" id="dateFrom" value="2026-01-01">
+      </label>
+      <label class="date-field">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        <span>Hasta:</span>
+        <input type="date" id="dateTo" value="2026-08-13">
+      </label>
+      <button type="submit" class="btn-filter">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 3H2l8 9.46V19l4 2v-8.54z"/></svg>
+        Filtrar
+      </button>
+    </form>
+
+    <!-- KPIs -->
+    <section class="kpis" aria-label="Indicadores principales" id="kpis"></section>
+
+    <!-- GRÁFICOS -->
+    <section class="charts">
+      <article class="card chart-card">
+        <h2 class="card__title">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="#D98B00"><rect x="3" y="12" width="4" height="9" rx="1"/><rect x="10" y="6" width="4" height="15" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/></svg>
+          Comportamiento de Ventas (últimos 6 meses)
+        </h2>
+        <div class="bars" id="barChart" role="img" aria-label="Gráfico de barras de ventas de los últimos 6 meses"></div>
+      </article>
+
+      <article class="card chart-card">
+        <h2 class="card__title">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#D98B00" stroke-width="2.4"><circle cx="12" cy="12" r="9"/><path d="M12 3v9h9"/></svg>
+          Distribución de Productos en Inventario
+        </h2>
+        <div class="donut-wrap">
+          <div class="donut" id="donut" role="img" aria-label="Gráfico de dona de distribución de inventario"></div>
+          <ul class="legend" id="donutLegend"></ul>
+        </div>
+      </article>
+    </section>
+
+    <!-- TABLA DE REPORTES -->
+    <section class="card table-card" aria-label="Reportes generados">
+      <div class="table-scroll">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Nombre del reporte</th>
+              <th>Tipo</th>
+              <th>Fecha de generación</th>
+              <th class="th-actions">Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="reportsBody"></tbody>
+        </table>
+      </div>
+      <p class="empty" id="emptyMsg" hidden>No hay reportes en este rango de fechas. Amplía el rango y vuelve a filtrar.</p>
+    </section>
+  </main>
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="footer">
+    <p>Desarrollado como proyecto de formación del SENA - Servicio Nacional de Aprendizaje, programa Tecnólogo en Análisis y Desarrollo de Software (ADSO).</p>
+    <p>© 2026 AgroGest Distribuciones. Todos los derechos reservados. Proyecto desarrollado con fines académicos.</p>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/reportes.js"></script>
+</body>
+</html>
