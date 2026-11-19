@@ -1,0 +1,251 @@
+/* perfil.css — se carga DESPUÉS de index-portal.css (usa sus variables) */
+
+.perfil-main {
+    padding-top: 40px;
+    padding-bottom: 60px;
+    background-color: var(--gris-fondo);
+}
+
+.migas {
+    font-size: 13px;
+    margin-bottom: 8px;
+    color: var(--gris-texto);
+}
+
+.migas a {
+    color: var(--gris-texto);
+    text-decoration: none;
+}
+
+.migas a:hover {
+    color: var(--dorado-oscuro);
+}
+
+.perfil-titulo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #131b2b;
+    margin-bottom: 4px;
+}
+
+.perfil-subtitulo {
+    font-size: 14px;
+    color: var(--gris-texto);
+    margin-bottom: 28px;
+}
+
+/* ---------- Tarjetas ---------- */
+.tarjeta-perfil {
+    background-color: var(--blanco);
+    border: 1px solid #ececec;
+    border-radius: 12px;
+    padding: 24px;
+    height: 100%;
+}
+
+.tarjeta-titulo {
+    font-size: 16px;
+    font-weight: bold;
+    color: #131b2b;
+    margin: 0;
+}
+
+/* ---------- Datos personales ---------- */
+.avatar {
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    background-color: var(--dorado);
+    color: var(--negro);
+    font-size: 30px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px auto;
+}
+
+.perfil-nombre {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    color: #131b2b;
+}
+
+.perfil-cargo {
+    text-align: center;
+    font-size: 13px;
+    color: var(--gris-texto);
+    margin-bottom: 20px;
+}
+
+.dato {
+    padding: 10px 0;
+    border-top: 1px solid #f0f0f0;
+}
+
+.dato-etiqueta {
+    display: block;
+    font-size: 12px;
+    color: var(--gris-texto);
+}
+
+.dato-valor {
+    display: block;
+    font-size: 14px;
+    color: #1d2430;
+    word-break: break-word;
+}
+
+/* ---------- Botones ---------- */
+.btn-dorado {
+    background-color: var(--dorado);
+    color: var(--negro);
+    border: 1px solid var(--dorado);
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 8px;
+    padding: 8px 16px;
+    transition: background-color 0.2s;
+}
+
+.btn-dorado:hover,
+.btn-dorado:focus {
+    background-color: var(--dorado-oscuro);
+    border-color: var(--dorado-oscuro);
+    color: var(--negro);
+}
+
+.btn-borde-dorado {
+    background-color: transparent;
+    color: var(--dorado-oscuro);
+    border: 1px solid var(--dorado);
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 8px;
+    padding: 8px 16px;
+}
+
+.btn-borde-dorado:hover,
+.btn-borde-dorado:focus {
+    background-color: var(--dorado);
+    color: var(--negro);
+}
+
+/* ---------- Tabla de cuentas ---------- */
+.tabla-cuentas {
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+.tabla-cuentas thead th {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gris-texto);
+    border-bottom: 1px solid var(--dorado);
+    white-space: nowrap;
+}
+
+.tabla-cuentas tbody td {
+    vertical-align: middle;
+    padding-top: 14px;
+    padding-bottom: 14px;
+}
+
+.cuenta-nombre {
+    font-weight: 600;
+    color: #1d2430;
+    display: block;
+}
+
+.cuenta-correo {
+    font-size: 13px;
+    color: var(--gris-texto);
+}
+
+.mini-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #f1e6c8;
+    color: var(--dorado-oscuro);
+    font-size: 13px;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.etiqueta-rol {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.rol-administrador { background-color: #131b2b; color: #ffffff; }
+.rol-empleado      { background-color: #fbeccb; color: #7a5200; }
+
+.estado-activo {
+    font-size: 13px;
+    color: #1d5e2e;
+    font-weight: 600;
+}
+
+.estado-activo::before {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #2e9e4a;
+    margin-right: 6px;
+}
+
+.tu-cuenta {
+    font-size: 12px;
+    color: var(--gris-texto);
+    margin-left: 6px;
+}
+
+/* ---------- Modal ---------- */
+.modal-agrogest .modal-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.modal-agrogest .form-label {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.modal-agrogest .form-control:focus,
+.modal-agrogest .form-select:focus {
+    border-color: var(--dorado);
+    box-shadow: 0 0 0 0.2rem rgba(216, 149, 0, 0.25);
+}
+
+@media (max-width: 575.98px) {
+    .perfil-titulo { font-size: 24px; }
+    .tarjeta-perfil { padding: 18px; }
+}
+
+/* ---------- Botón editar de la tabla ---------- */
+.btn-editar {
+    border: 1px solid var(--dorado);
+    color: var(--dorado-oscuro);
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 4px 12px;
+    background-color: transparent;
+}
+
+.btn-editar:hover,
+.btn-editar:focus {
+    background-color: var(--dorado);
+    color: var(--negro);
+}
