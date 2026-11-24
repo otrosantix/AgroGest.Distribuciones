@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Detalle del pedido #PED-0051</title>
+    <!-- Iconos y fuente (no son Bootstrap) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- VERSIÓN 1: solo este CSS, sin Bootstrap -->
+    <link rel="stylesheet" href="css/detalle-pedido.css">
+</head>
+
+<body class="v1">
+    <!-- Barra de navegación (mismo diseño, clases propias en vez de Bootstrap) -->
+    <nav class="navbar">
+        <div class="contenedor nav-interno">
+            <a class="navbar-brand" href="index.html">
+                <div class="logo-circle">
+                    <img src="img/Logo.jpg" alt="Logo AgroGest">
+                </div>
+                <div class="brand-text">
+                    <span class="texto-dorado">AgroGest</span>
+                    <span class="texto-blanco">DISTRIBUCIONES</span>
+                </div>
+            </a>
+
+            <button class="nav-toggle" id="btn-menu" type="button" aria-label="Abrir menú">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="nav-menu" id="menu">
+                <ul class="nav-lista">
+                    <li><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li><a class="nav-link" href="productos.html">Productos</a></li>
+                    <li><a class="nav-link" href="Inventario-admin.html">Inventario</a></li>
+                    <li><a class="nav-link" href="#">Ventas</a></li>
+                    <li><a class="nav-link active" href="#">Pedidos</a></li>
+                    <li><a class="nav-link" href="#">Reportes</a></li>
+                    <li><a class="nav-link" href="#">Contacto</a></li>
+                </ul>
+                <div>
+                    <button class="btn-admin">Administrador <i class="fa-regular fa-user"></i></button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="contenedor pagina">
+
+        <!-- Ruta de navegación -->
+        <p class="migas">Pedidos <i class="fa-solid fa-angle-right"></i> <strong>Detalle de pedido #PED-0051</strong></p>
+
+        <!-- Título y botones -->
+        <div class="titulo-fila">
+            <h1 class="titulo">
+                Pedido <span class="codigo">#PED-0051</span>
+                <span class="badge-estado estado-transito" id="badge-estado">
+                    <i class="fa-solid fa-truck-fast" id="badge-icono"></i>
+                    <span id="badge-texto">En tránsito</span>
+                </span>
+            </h1>
+            <div class="botones-titulo">
+                <button class="btn btn-claro" id="btn-volver" type="button"><i class="fa-solid fa-arrow-left"></i> Volver</button>
+                <button class="btn btn-dorado" id="btn-exportar" type="button"><i class="fa-regular fa-file"></i> Exportar PDF</button>
+            </div>
+        </div>
+
+        <!-- Tarjetas de resumen -->
+        <section class="grid-info">
+            <div class="tarjeta info-item">
+                <div class="icono-info"><i class="fa-regular fa-calendar"></i></div>
+                <div>
+                    <small>Fecha solicitud</small>
+                    <strong>12 Ago 2026</strong>
+                    <small>04:32 PM</small>
+                </div>
+            </div>
+            <div class="tarjeta info-item">
+                <div class="icono-info"><i class="fa-solid fa-truck"></i></div>
+                <div>
+                    <small>Entrega estimada</small>
+                    <strong>19 Ago 2026</strong>
+                    <small>Por confirmar llegada</small>
+                </div>
+            </div>
+            <div class="tarjeta info-item">
+                <div class="icono-info"><i class="fa-solid fa-box"></i></div>
+                <div>
+                    <small>Insumos pedidos</small>
+                    <strong id="total-productos">2 productos</strong>
+                    <small>Envío parcial</small>
+                </div>
+            </div>
+            <div class="tarjeta info-item">
+                <div class="icono-info"><i class="fa-solid fa-dollar-sign"></i></div>
+                <div>
+                    <small>Total pedido</small>
+                    <strong id="total-tarjeta">$850.000 COP</strong>
+                    <small>IVA incluido</small>
+                </div>
+            </div>
+        </section>
+
+        <!-- Proveedor y estado -->
+        <section class="dos-columnas">
+            <div class="tarjeta">
+                <h2 class="subtitulo"><i class="fa-regular fa-building icono-dorado"></i> Semillas del Campo</h2>
+                <ul class="datos-proveedor">
+                    <li><i class="fa-solid fa-globe"></i> NIT: 900.123.456-0</li>
+                    <li><i class="fa-regular fa-envelope"></i> ventas@semillascampo.com</li>
+                    <li><i class="fa-solid fa-phone"></i> +57 601 555 1212</li>
+                </ul>
+            </div>
+
+            <div class="tarjeta caja-estado">
+                <label for="estado-pedido">Actualizar estado del pedido</label>
+                <select id="estado-pedido">
+                    <option value="pendiente">Pendiente</option>
+                    <option value="transito" selected>En tránsito</option>
+                    <option value="entregado">Entregado</option>
+                    <option value="cancelado">Cancelado</option>
+                </select>
+                <button class="btn btn-dorado" id="btn-guardar" type="button">Guardar cambios</button>
+            </div>
+        </section>
+
+        <!-- Tabla de insumos -->
+        <section class="tarjeta">
+            <table class="tabla-insumos" id="tabla-insumos">
+                <thead>
+                    <tr>
+                        <th>Insumo</th>
+                        <th class="num">Cantidad</th>
+                        <th class="num">Precio Unit.</th>
+                        <th class="num">Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- data-cantidad y data-precio son los datos que lee el JS -->
+                    <tr data-cantidad="150" data-precio="5000">
+                        <td>
+                            <div class="insumo">
+                                <div class="icono-insumo"><i class="fa-solid fa-seedling"></i></div>
+                                <div>
+                                    <strong>Semilla de Maíz Híbrida</strong>
+                                    <small>Cód: PRO-001</small>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="num">150 Kg</td>
+                        <td class="num">$5.000</td>
+                        <td class="num subtotal"><strong>$750.000</strong></td>
+                    </tr>
+                    <tr data-cantidad="40" data-precio="2500">
+                        <td>
+                            <div class="insumo">
+                                <div class="icono-insumo"><i class="fa-solid fa-leaf"></i></div>
+                                <div>
+                                    <strong>Abono Orgánico</strong>
+                                    <small>Cód: PRO-002</small>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="num">40 Kg</td>
+                        <td class="num">$2.500</td>
+                        <td class="num subtotal"><strong>$100.000</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Totales -->
+            <div class="resumen">
+                <p><span>Subtotal:</span> <strong id="subtotal-general">$850.000</strong></p>
+                <p><span>Descuento proveedor:</span> <strong class="verde" id="descuento">-$0</strong></p>
+                <p><span>IVA (19%):</span> <span class="iva">Incluido</span></p>
+                <p class="total-final"><span>Total final:</span> <strong id="total-final">$850.000 COP</strong></p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-agro">
+        <p>Desarrollado como proyecto de formación del SENA – Servicio Nacional de Aprendizaje, programa Tecnólogo en Análisis y Desarrollo de Software (ADSO).</p>
+        <p>© 2026 AgroGest Distribuciones. Todos los derechos reservados.<br>Proyecto desarrollado con fines académicos.</p>
+    </footer>
+
+    <script src="js/detalle-pedido.js"></script>
+</body>
+</html>
