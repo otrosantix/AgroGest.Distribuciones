@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroGest - Detalle de Venta</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Hoja de estilos de esta página -->
+    <link rel="stylesheet" href="css/detalle-venta.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- 1. BARRA DE NAVEGACIÓN -->
+    <nav class="navbar navbar-expand-lg navbar-custom px-4 py-3">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="img/Logo.jpg" alt="Logo AgroGest" class="logo-nav me-2">
+                <span class="d-flex flex-column lh-1">
+                    <span class="marca-nombre">AgroGest</span>
+                    <span class="marca-sub">Distribuciones</span>
+                </span>
+            </a>
+            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav" aria-controls="navbarNav"
+                    aria-expanded="false" aria-label="Abrir menú">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-3">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Inventario-admin.html">Inventario</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="ventas.html" aria-current="page">Ventas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Pedidos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Reportes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
+                </ul>
+                <div>
+                    <a href="#" class="btn btn-admin rounded-pill px-4">
+                        Administrador <i class="bi bi-person ms-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. CONTENIDO PRINCIPAL -->
+    <main class="container my-5 flex-grow-1">
+
+        <!-- Ruta de navegación -->
+        <div class="breadcrumb-agro mb-3">
+            <a href="ventas.html">Ventas</a>
+            <i class="bi bi-chevron-right mx-2"></i>
+            <span class="text-agro">Detalle de venta: #VEN-00125</span>
+        </div>
+
+        <!-- Título, estado y acciones -->
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+            <div class="d-flex flex-wrap align-items-center gap-3">
+                <h1 class="titulo-pagina mb-0">Venta <span class="text-agro">#VEN-00125</span></h1>
+                <span class="etiqueta etiqueta-verde"><i class="bi bi-circle-fill"></i> Completada</span>
+            </div>
+            <div class="acciones-pagina d-flex flex-wrap gap-2">
+                <a href="ventas.html" class="btn btn-outline-agro d-flex align-items-center">
+                    <i class="bi bi-arrow-left me-2"></i> Volver
+                </a>
+                <!-- Pendiente: enlazar al comprobante cuando exista -->
+                <a href="#" class="btn btn-outline-agro d-flex align-items-center">
+                    <i class="bi bi-download me-2"></i> Descargar comprobante
+                </a>
+                <!-- Pendiente: la impresión necesita JavaScript (window.print) -->
+                <button type="button" class="btn btn-agro d-flex align-items-center">
+                    <i class="bi bi-printer me-2"></i> Imprimir factura
+                </button>
+            </div>
+        </div>
+
+        <!-- Datos principales de la venta -->
+        <section class="row g-3 mb-4" aria-label="Datos de la venta">
+            <div class="col-sm-6 col-lg-3">
+                <div class="tarjeta-borde d-flex align-items-center gap-3 p-3 h-100">
+                    <span class="icono-dato"><i class="bi bi-calendar3"></i></span>
+                    <div>
+                        <p class="dato-etiqueta">Fecha de venta</p>
+                        <p class="dato-valor">14 Ago 2026</p>
+                        <p class="dato-nota">12:35 PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <div class="tarjeta-borde d-flex align-items-center gap-3 p-3 h-100">
+                    <span class="icono-dato"><i class="bi bi-credit-card"></i></span>
+                    <div>
+                        <p class="dato-etiqueta">Método de pago</p>
+                        <p class="dato-valor">Efectivo</p>
+                        <p class="dato-nota">Transacción #ST-132</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <div class="tarjeta-borde d-flex align-items-center gap-3 p-3 h-100">
+                    <span class="icono-dato"><i class="bi bi-bag"></i></span>
+                    <div>
+                        <p class="dato-etiqueta">Total productos</p>
+                        <p class="dato-valor">3 productos</p>
+                        <p class="dato-nota">4 unidades en total</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <div class="tarjeta-borde d-flex align-items-center gap-3 p-3 h-100">
+                    <span class="icono-dato icono-dato-verde"><i class="bi bi-check-circle"></i></span>
+                    <div>
+                        <p class="dato-etiqueta">Estado actual</p>
+                        <p class="dato-valor">Completada</p>
+                        <p class="dato-nota">Entregado al cliente</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cliente y total cancelado -->
+        <section class="tarjeta-borde p-3 p-md-4 mb-4" aria-label="Cliente">
+            <div class="d-flex flex-wrap align-items-center gap-3">
+                <span class="avatar-cliente"><i class="bi bi-person"></i></span>
+                <div>
+                    <p class="cliente-nombre">Carlos Rodríguez</p>
+                    <p class="cliente-datos">
+                        <span>CC: <span class="valor-gold">1.234.567.890</span></span>
+                        <span class="separador">&bull;</span>
+                        <span>Email: <span class="valor-gold">carlos.r@gmail.com</span></span>
+                        <span class="separador">&bull;</span>
+                        <span>Tel: <span class="valor-gold">+57 320 123 4567</span></span>
+                    </p>
+                </div>
+
+                <div class="d-flex align-items-center gap-3 ms-auto">
+                    <div class="text-end">
+                        <p class="resumen-etiqueta">Total cancelado</p>
+                        <p class="total-cancelado">$165.000 COP</p>
+                    </div>
+                    <span class="divisor-vertical"></span>
+                    <div>
+                        <p class="resumen-etiqueta">Pendiente</p>
+                        <p class="pendiente-valor">$0 COP</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Productos vendidos -->
+        <section class="tarjeta-borde tarjeta-tabla" aria-labelledby="titulo-productos">
+            <div class="tabla-cabecera d-flex flex-wrap justify-content-between align-items-center gap-2">
+                <h2 class="titulo-tabla" id="titulo-productos">
+                    <i class="bi bi-cart3 me-2"></i> Productos vendidos
+                </h2>
+                <span class="nota-iva">*IVA incluido en todos los precios</span>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table tabla-detalle align-middle mb-0">
+                    <thead>
+                        <tr>
+                            <th scope="col">Producto</th>
+                            <th scope="col" class="text-center">Cantidad</th>
+                            <th scope="col" class="text-end">Precio unit.</th>
+                            <th scope="col" class="text-end">Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center gap-3">
+                                    <span class="icono-producto"><i class="bi bi-flower1"></i></span>
+                                    <div>
+                                        <span class="nombre-producto d-block">Semilla de Maíz Híbrido</span>
+                                        <span class="codigo-producto">COD: PRO-005</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="text-center fw-bold">2</td>
+                            <td class="text-end">$45.000</td>
+                            <td class="text-end fw-bold">$90.000</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center gap-3">
+                                    <span class="icono-producto"><i class="bi bi-droplet"></i></span>
+                                    <div>
+                                        <span class="nombre-producto d-block">Fertilizante Líquido</span>
+                                        <span class="codigo-producto">COD: PRO-002</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="text-center fw-bold">1</td>
+                            <td class="text-end">$32.500</td>
+                            <td class="text-end fw-bold">$32.500</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center gap-3">
+                                    <span class="icono-producto"><i class="bi bi-box"></i></span>
+                                    <div>
+                                        <span class="nombre-producto d-block">Pulverizador Manual</span>
+                                        <span class="codigo-producto">COD: PRO-023</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="text-center fw-bold">1</td>
+                            <td class="text-end">$42.500</td>
+                            <td class="text-end fw-bold">$42.500</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Nota legal y totales -->
+            <div class="pie-detalle row g-4 align-items-end">
+                <div class="col-md-6">
+                    <p class="nota-legal">
+                        Documento de venta generado de forma electrónica.<br>
+                        AgroGest Distribuciones - Nit: 900.123.456-1
+                    </p>
+                </div>
+                <div class="col-md-6 col-lg-5 ms-lg-auto">
+                    <dl class="totales mb-0">
+                        <div class="linea-total">
+                            <dt>Subtotal</dt>
+                            <dd class="fw-bold">$165.000</dd>
+                        </div>
+                        <div class="linea-total">
+                            <dt>Descuento</dt>
+                            <dd class="valor-verde">-$0</dd>
+                        </div>
+                        <div class="linea-total">
+                            <dt>IVA (19%)</dt>
+                            <dd class="valor-gris">Incluido</dd>
+                        </div>
+                        <div class="linea-total linea-final">
+                            <dt>Total final</dt>
+                            <dd>$165.000 COP</dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 3. PIE DE PÁGINA INSTITUCIONAL -->
+    <footer class="footer-custom text-white text-center py-4 mt-5">
+        <div class="container">
+            <p class="mb-1 small">Desarrollado como proyecto de formación del SENA – Servicio Nacional de Aprendizaje, programa Tecnólogo en Análisis y Desarrollo de Software (ADSO).</p>
+            <p class="mb-1 small">&copy; 2026 AgroGest Distribuciones. Todos los derechos reservados.</p>
+            <p class="mb-0 small">Proyecto desarrollado con fines académicos.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle (menú móvil) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
