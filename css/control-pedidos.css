@@ -193,3 +193,228 @@ h1 {
     font-size: 10px;
     color: #E6B325;
 }
+
+
+/* ==========================================================
+   LO NUEVO (todo lo de abajo lo agregué yo; lo de arriba es tuyo)
+   ========================================================== */
+
+/* --- Ajustes para que se parezca a la captura --- */
+
+/* El body es una columna de alto completo: con esto el main crece
+   y empuja el footer hasta abajo aunque haya pocos pedidos */
+main {
+    flex: 1;
+}
+
+/* Tu h1 de 65px se ve enorme frente a la captura, lo bajo aquí */
+.tarjeta-busqueda h1 {
+    font-size: 28px;
+    font-weight: 700;
+    padding: 10px 0;
+    margin: 0;
+}
+
+/* En la captura el texto de la miga de pan es gris oscuro, no dorado */
+.miga-pan strong {
+    color: #333;
+}
+
+/* Subtítulo de las tarjetas en gris, como en la captura */
+.sub-estado {
+    color: #9ca3af;
+}
+
+/* --- Filtro "Todos" --- */
+.filtros {
+    padding: 0 20px 16px;
+}
+
+.chip-filtro {
+    background-color: #E6B325;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 6px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* --- Tabla --- */
+.contenedor-tabla {
+    padding: 0 20px 40px;
+}
+
+/* Caja blanca con bordes redondeados. El overflow-x hace que en el celular
+   la tabla se pueda deslizar de lado en vez de aplastarse */
+.tabla-envoltorio {
+    background-color: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    overflow-x: auto;
+}
+
+.tabla-pedidos {
+    width: 100%;
+    min-width: 820px;            /* debajo de este ancho aparece el scroll horizontal */
+    border-collapse: collapse;   /* une los bordes de las celdas en una sola línea */
+}
+
+.tabla-pedidos th {
+    background-color: #f9fafb;
+    color: #6b7280;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: left;
+    padding: 14px 16px;
+}
+
+.tabla-pedidos td {
+    padding: 12px 16px;
+    font-size: 13px;
+    vertical-align: middle;
+    border-top: 1px solid #f0f0f0;
+}
+
+.col-acciones {
+    text-align: right !important;
+}
+
+/* Los span van uno encima del otro (nombre arriba, NIT abajo) */
+.dato-fuerte {
+    display: block;
+    font-weight: 600;
+    color: #111;
+}
+
+.dato-suave {
+    display: block;
+    font-size: 11px;
+    color: #9ca3af;
+}
+
+.num-pedido {
+    color: #E6B325;
+    font-weight: 700;
+}
+
+.total {
+    font-weight: 700;
+    color: #111;
+    white-space: nowrap;
+}
+
+.ver-detalle {
+    font-size: 11px;
+    color: #555;
+    text-decoration: underline;
+}
+
+/* --- Etiquetas de estado (cada una con su color) --- */
+.estado-pedido {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.estado-pedido.cotizado   { background-color: #dbeafe; color: #1d4ed8; }
+.estado-pedido.en-transito { background-color: #fef3c7; color: #a16207; }
+.estado-pedido.recibido   { background-color: #dcfce7; color: #15803d; }
+.estado-pedido.cancelado  { background-color: #f3f4f6; color: #4b5563; }
+
+/* --- Botón Ver --- */
+.btn-ver {
+    display: inline-block;
+    border: 1px solid #E6B325;
+    color: #E6B325;
+    background-color: #fff;
+    border-radius: 6px;
+    padding: 5px 14px;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.btn-ver:hover {
+    background-color: #E6B325;
+    color: #fff;
+}
+
+.sin-resultados {
+    text-align: center;
+    color: #6b7280;
+    padding: 16px;
+    margin: 0;
+}
+
+/* --- Pie de página --- */
+.pie-pagina {
+    background-color: #c98a07;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    font-size: 12px;
+}
+
+.pie-pagina p {
+    margin: 2px 0;
+}
+
+/* ==========================================================
+   RESPONSIVO
+   ========================================================== */
+
+/* Tablet: las 4 tarjetas pasan a 2 por fila */
+@media (max-width: 992px) {
+    /* flex-wrap deja que las tarjetas "bajen" a otra fila cuando no caben */
+    .contenedor-tarjetas {
+        flex-wrap: wrap;
+    }
+
+    /* 40% de base + flex-grow: así caben 2 por fila.
+       El width: auto anula el 250px que traías en la primera regla */
+    .tarjetas-datos {
+        flex: 1 1 40%;
+        width: auto;
+    }
+}
+
+/* Celular */
+@media (max-width: 576px) {
+    .tarjeta-busqueda h1 {
+        font-size: 22px;
+    }
+
+    /* El buscador y el botón ocupan todo el ancho */
+    .tarjeta-busqueda form {
+        width: 100%;
+    }
+
+    .barra-busqueda {
+        flex: 1;          /* el input se estira y deja espacio al botón */
+        width: auto;
+        min-width: 0;     /* sin esto un input flex no se deja encoger */
+    }
+
+    .btn-nuevos-insumos {
+        width: auto;
+        white-space: nowrap;
+    }
+
+    /* Una tarjeta por fila */
+    .tarjetas-datos {
+        flex: 1 1 100%;
+    }
+
+    .contenedor-tarjetas,
+    .filtros,
+    .contenedor-tabla {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+}
