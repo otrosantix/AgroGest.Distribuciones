@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Control de Pedidos</title>
+    <!-- Bootstrap 5 CSS (lo usa la barra de navegación) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts (Inter) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/control-pedidos.css">
+</head>
+
+<body>
+    <main>
+<!-- Barra de navegacion -->
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+            <div class="logo-circle">
+                    <img src="img/Logo.jpg">
+            </div>
+            <div class="brand-text">
+                <span class="texto-dorado">AgroGest</span>
+                    <span class="text-white">DISTRIBUCIONES</span>
+            </div>
+                </a>
+
+
+
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+<span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="menu">
+<ul class="navbar-nav mx-auto">
+<li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+<li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
+<li class="nav-item"><a class="nav-link active" href="Inventario-admin.html">Inventario</a></li>
+<li class="nav-item"><a class="nav-link" href="#">Ventas</a></li>
+<li class="nav-item"><a class="nav-link" href="#">Pedidos</a></li>
+<li class="nav-item"><a class="nav-link" href="#">Reportes</a></li>
+<li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
+</ul>
+<div>
+<button class="btn-admin">Administrador <i class="fa-regular fa-user"></i></button>
+</div>
+</div>
+</div>
+</nav>
+
+<main>
+
+<div class="tarjeta-busqueda">
+    <small class="miga-pan"> inicio > <strong>Control de pedidos</strong></small>
+
+    <!-- Contenedor flex: un hijo a la izquierda y otro a la derecha -->
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+
+        <!-- Hijo izquierdo: título y subtítulo -->
+        <div>
+            <h1>Control de <strong>Pedidos a proveedores</strong></h1>
+            <small class="texto-peq">Administra la solicitud y recepcion de insumos para tu negocio agricola</small>
+        </div>
+
+        <!-- Hijo derecho: buscador y botón en la misma línea -->
+        <form action="/buscar" method="get" class="d-flex align-items-center gap-2">
+            <input class="barra-busqueda" type="search" id="campo-busqueda" name="q" placeholder=" 🔍︎ Buscar pedido o proveedor ...">
+            <a href="solicitar-nuevos-insumos.html" class="btn-nuevos-insumos">+ Nuevo pedido</a>
+        </form>
+
+    </div>
+</div>
+
+<!-- Contenedor que pone las 4 tarjetas en una fila -->
+<div class="contenedor-tarjetas">
+
+    <div class="tarjetas-datos">
+        <div class="logos">◴</div>
+        <div class="textos-tarjeta">
+            <p class="estado">Pedidos pendientes</p>
+            <p class="numeros">3</p>
+            <small class="sub-estado">Esperando respuesta</small>
+        </div>
+    </div>
+
+    <div class="tarjetas-datos">
+        <div class="logos">⛟</div>
+        <div class="textos-tarjeta">
+            <p class="estado">En tránsito</p>
+            <p class="numeros">2</p>
+            <small class="sub-estado">Llegan esta semana</small>
+        </div>
+    </div>
+
+    <div class="tarjetas-datos">
+        <div class="logos">❒</div>
+        <div class="textos-tarjeta">
+            <p class="estado">Recibidos (Este mes)</p>
+            <p class="numeros">8</p>
+            <small class="sub-estado">Insumos en bodega</small>
+        </div>
+    </div>
+
+    <div class="tarjetas-datos">
+        <div class="logos">🗒</div>
+        <div class="textos-tarjeta">
+            <p class="estado">Total pedidos</p>
+            <p class="numeros">14</p>
+            <small class="sub-estado">historial completo</small>
+        </div>
+    </div>
+
+</div>
+
+<!-- NUEVO: filtro -->
+<div class="filtros">
+    <button type="button" class="chip-filtro" id="filtro-todos">Todos</button>
+</div>
+
+<!-- NUEVO: tabla de pedidos -->
+<div class="contenedor-tabla">
+    <div class="tabla-envoltorio">
+        <table class="tabla-pedidos" id="tabla-pedidos">
+            <thead>
+                <tr>
+                    <th>N.º Pedido</th>
+                    <th>Proveedor</th>
+                    <th>Fecha Solicitud</th>
+                    <th>Insumos</th>
+                    <th>Total</th>
+                    <th>Estado</th>
+                    <th class="col-acciones">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="num-pedido">#PED-0052</td>
+                    <td>
+                        <span class="dato-fuerte">AgroPro S.A.S.</span>
+                        <span class="dato-suave">NIT: 901.234.567-8</span>
+                    </td>
+                    <td>
+                        <span class="dato-fuerte">15 Ago 2026</span>
+                        <span class="dato-suave">10:20 AM</span>
+                    </td>
+                    <td>
+                        <span class="dato-fuerte">4 insumos</span>
+                        <a href="#" class="ver-detalle">Ver detalle</a>
+                    </td>
+                    <td class="total">$2.450.000 COP</td>
+                    <td><span class="estado-pedido cotizado"><i class="fa-regular fa-file"></i> Cotizado</span></td>
+                    <td class="col-acciones"><a href="#" class="btn-ver"><i class="fa-regular fa-eye"></i> Ver</a></td>
+                </tr>
+                <tr>
+                    <td class="num-pedido">#PED-0051</td>
+                    <td>
+                        <span class="dato-fuerte">Semillas del Campo</span>
+                        <span class="dato-suave">NIT: 800.123.456-3</span>
+                    </td>
+                    <td>
+                        <span class="dato-fuerte">12 Ago 2026</span>
+                        <span class="dato-suave">04:15 PM</span>
+                    </td>
+                    <td>
+                        <span class="dato-fuerte">2 insumos</span>
+                        <a href="#" class="ver-detalle">Ver detalle</a>
+                    </td>
+                    <td class="total">$850.000 COP</td>
+                    <td><span class="estado-pedido en-transito"><i class="fa-solid fa-truck"></i> En tránsito</span></td>
+                    <td class="col-acciones"><a href="#" class="btn-ver"><i class="fa-regular fa-eye"></i> Ver</a></td>
+                </tr>
+                <tr>
+                    <td class="num-pedido">#PED-0049</td>
+                    <td>
+                        <span class="dato-fuerte">Fertilizantes Nacionales</span>
+                        <span class="dato-suave">NIT: 903.987.654-3</span>
+                    </td>
+                    <td>
+                        <span class="dato-fuerte">08 Ago 2026</span>
+                        <span class="dato-suave">09:00 AM</span>
+                    </td>
+                    <td>
+                        <span class="dato-fuerte">6 insumos</span>
+                        <a href="#" class="ver-detalle">Ver detalle</a>
+                    </td>
+                    <td class="total">$3.150.000 COP</td>
+                    <td><span class="estado-pedido recibido"><i class="fa-solid fa-check"></i> Recibido</span></td>
+                    <td class="col-acciones"><a href="#" class="btn-ver"><i class="fa-regular fa-eye"></i> Ver</a></td>
+                </tr>
+                <tr>
+                    <td class="num-pedido">#PED-0047</td>
+                    <td>
+                        <span class="dato-fuerte">AgroPro S.A.S.</span>
+                        <span class="dato-suave">NIT: 901.234.567-8</span>
+                    </td>
+                    <td>
+                        <span class="dato-fuerte">28 Jul 2026</span>
+                        <span class="dato-suave">11:30 AM</span>
+                    </td>
+                    <td>
+                        <span class="dato-fuerte">3 insumos</span>
+                        <a href="#" class="ver-detalle">Ver detalle</a>
+                    </td>
+                    <td class="total">$1.270.000 COP</td>
+                    <td><span class="estado-pedido cancelado"><i class="fa-regular fa-circle-xmark"></i> Cancelado</span></td>
+                    <td class="col-acciones"><a href="#" class="btn-ver"><i class="fa-regular fa-eye"></i> Ver</a></td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- Mensaje que solo aparece si el buscador no encuentra nada -->
+        <p id="sin-resultados" class="sin-resultados" hidden>No se encontraron pedidos con esa búsqueda.</p>
+    </div>
+</div>
+
+</main>
+
+<!-- NUEVO: pie de página -->
+<footer class="pie-pagina">
+    <p>Desarrollado como proyecto de formación del SENA – Servicio Nacional de Aprendizaje, programa Tecnólogo en Análisis y Desarrollo de Software (ADSO).</p>
+    <p>© 2026 AgroGest Distribuciones. Todos los derechos reservados. Proyecto desarrollado con fines académicos.</p>
+</footer>
+
+<!-- Bootstrap JS (para que abra el menú en celular) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/control-pedidos.js"></script>
+</body>
+</html>
