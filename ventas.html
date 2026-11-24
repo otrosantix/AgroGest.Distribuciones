@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroGest - Control de Ventas</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Hoja de estilos de esta página -->
+    <link rel="stylesheet" href="css/ventas.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- 1. BARRA DE NAVEGACIÓN -->
+    <nav class="navbar navbar-expand-lg navbar-custom px-4 py-3">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="img/Logo.jpg" alt="Logo AgroGest" class="logo-nav me-2">
+                <span class="d-flex flex-column lh-1">
+                    <span class="marca-nombre">AgroGest</span>
+                    <span class="marca-sub">Distribuciones</span>
+                </span>
+            </a>
+            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav" aria-controls="navbarNav"
+                    aria-expanded="false" aria-label="Abrir menú">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-3">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Inventario-admin.html">Inventario</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="ventas.html" aria-current="page">Ventas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Pedidos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Reportes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
+                </ul>
+                <div>
+                    <a href="#" class="btn btn-admin rounded-pill px-4">
+                        Administrador <i class="bi bi-person ms-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. CONTENIDO PRINCIPAL -->
+    <main class="container my-5 flex-grow-1">
+
+        <!-- Ruta de navegación -->
+        <div class="breadcrumb-agro mb-3">
+            <a href="index.html">Inicio</a>
+            <i class="bi bi-chevron-right mx-2"></i>
+            <span class="text-agro">Ventas</span>
+        </div>
+
+        <!-- Título, buscador y botón de nueva venta -->
+        <div class="row align-items-center g-3 mb-4">
+            <div class="col-lg-7">
+                <h1 class="titulo-pagina">Control de <span class="text-agro">Ventas</span></h1>
+                <p class="text-muted small mb-0">
+                    Administra y consulta las ventas realizadas en
+                    <span class="text-agro">AgroGest Distribuciones</span>.
+                </p>
+            </div>
+            <div class="col-lg-5 d-flex flex-wrap justify-content-lg-end gap-2">
+                <div class="input-group buscador">
+                    <span class="input-group-text bg-white border-end-0 text-agro">
+                        <i class="bi bi-search"></i>
+                    </span>
+                    <input type="text" class="form-control border-start-0 ps-0"
+                           placeholder="Buscar venta..." aria-label="Buscar venta">
+                </div>
+                <!-- Pendiente: cambiar el enlace cuando exista la página de nueva venta -->
+                <a href="#" class="btn btn-agro d-flex align-items-center">
+                    <i class="bi bi-plus-lg me-2"></i> Nueva venta
+                </a>
+            </div>
+        </div>
+        <!-- Tarjetas de resumen -->
+        <section class="row g-3 mb-4" aria-label="Resumen de ventas">
+            <div class="col-md-6 col-lg-3">
+                <div class="tarjeta-stat d-flex align-items-center gap-3 h-100">
+                    <div class="icono-stat"><i class="bi bi-cart3"></i></div>
+                    <div>
+                        <p class="stat-etiqueta">Ventas de hoy</p>
+                        <p class="stat-valor">24</p>
+                        <p class="stat-variacion">+12% vs ayer</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="tarjeta-stat d-flex align-items-center gap-3 h-100">
+                    <div class="icono-stat"><i class="bi bi-wallet2"></i></div>
+                    <div>
+                        <p class="stat-etiqueta">Ingresos de hoy</p>
+                        <p class="stat-valor">$1.850.000 COP</p>
+                        <p class="stat-variacion">+8% vs ayer</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="tarjeta-stat d-flex align-items-center gap-3 h-100">
+                    <div class="icono-stat"><i class="bi bi-star"></i></div>
+                    <div>
+                        <p class="stat-etiqueta">Producto más vendido</p>
+                        <p class="stat-valor">Semilla de Maíz Híbrido</p>
+                        <p class="stat-nota">45 unidades vendidas</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="tarjeta-stat d-flex align-items-center gap-3 h-100">
+                    <div class="icono-stat"><i class="bi bi-graph-up-arrow"></i></div>
+                    <div>
+                        <p class="stat-etiqueta">Ventas del mes</p>
+                        <p class="stat-valor">$18.750.000 COP</p>
+                        <p class="stat-variacion">+15% vs mes anterior</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filtros -->
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+            <div class="d-flex gap-2">
+                <button type="button" class="btn btn-agro btn-sm rounded-pill px-4 py-2">Todos</button>
+                <button type="button" class="btn btn-filtro btn-sm rounded-pill px-4 py-2">Próximamente...</button>
+            </div>
+            <div class="dropdown">
+                <button type="button" class="btn btn-fecha d-flex align-items-center"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-calendar3 me-2"></i> Seleccionar fecha
+                    <i class="bi bi-chevron-down ms-2 small"></i>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="#">Hoy</a></li>
+                    <li><a class="dropdown-item" href="#">Esta semana</a></li>
+                    <li><a class="dropdown-item" href="#">Este mes</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Tabla de ventas -->
+        <div class="tabla-card">
+            <div class="table-responsive">
+                <table class="table tabla-ventas align-middle mb-0">
+                    <thead>
+                        <tr>
+                            <th scope="col">N.º Venta</th>
+                            <th scope="col">Cliente</th>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Productos</th>
+                            <th scope="col">Total</th>
+                            <th scope="col">Pago</th>
+                            <th scope="col">Estado</th>
+                            <th scope="col" class="text-center">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center gap-3">
+                                    <span class="icono-doc"><i class="bi bi-file-earmark-text"></i></span>
+                                    <span class="fw-bold">VEN-00125</span>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="fw-bold d-block">Carlos Rodríguez</span>
+                                <span class="cedula">CC 1.234.567.890</span>
+                            </td>
+                            <td>
+                                <span class="d-block texto-suave">14 Ago 2026</span>
+                                <span class="hora">10:35 AM</span>
+                            </td>
+                            <td>
+                                <span class="d-block">3 productos</span>
+                                <a href="#" class="ver-detalle">Ver detalle</a>
+                            </td>
+                            <td class="fw-bold">$165.000 COP</td>
+                            <td><span class="etiqueta etiqueta-verde"><i class="bi bi-cash-stack"></i> Efectivo</span></td>
+                            <td><span class="etiqueta etiqueta-verde"><i class="bi bi-check-circle"></i> Completada</span></td>
+                            <td class="text-center"><a href="#" class="btn btn-ver"><i class="bi bi-eye me-1"></i> Ver</a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center gap-3">
+                                    <span class="icono-doc"><i class="bi bi-file-earmark-text"></i></span>
+                                    <span class="fw-bold">VEN-00124</span>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="fw-bold d-block">María González</span>
+                                <span class="cedula">CC 1.098.765.432</span>
+                            </td>
+                            <td>
+                                <span class="d-block texto-suave">14 Ago 2026</span>
+                                <span class="hora">09:15 AM</span>
+                            </td>
+                            <td>
+                                <span class="d-block">2 productos</span>
+                                <a href="#" class="ver-detalle">Ver detalle</a>
+                            </td>
+                            <td class="fw-bold">$78.500 COP</td>
+                            <td><span class="etiqueta etiqueta-morado"><i class="bi bi-phone"></i> Nequi</span></td>
+                            <td><span class="etiqueta etiqueta-verde"><i class="bi bi-check-circle"></i> Completada</span></td>
+                            <td class="text-center"><a href="#" class="btn btn-ver"><i class="bi bi-eye me-1"></i> Ver</a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center gap-3">
+                                    <span class="icono-doc"><i class="bi bi-file-earmark-text"></i></span>
+                                    <span class="fw-bold">VEN-00123</span>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="fw-bold d-block">Pedro Martínez</span>
+                                <span class="cedula">CC 1.112.223.334</span>
+                            </td>
+                            <td>
+                                <span class="d-block texto-suave">13 Ago 2026</span>
+                                <span class="hora">05:45 PM</span>
+                            </td>
+                            <td>
+                                <span class="d-block">4 productos</span>
+                                <a href="#" class="ver-detalle">Ver detalle</a>
+                            </td>
+                            <td class="fw-bold">$250.000 COP</td>
+                            <td><span class="etiqueta etiqueta-azul"><i class="bi bi-bank"></i> Transferencia</span></td>
+                            <td><span class="etiqueta etiqueta-verde"><i class="bi bi-check-circle"></i> Completada</span></td>
+                            <td class="text-center"><a href="#" class="btn btn-ver"><i class="bi bi-eye me-1"></i> Ver</a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center gap-3">
+                                    <span class="icono-doc"><i class="bi bi-file-earmark-text"></i></span>
+                                    <span class="fw-bold">VEN-00122</span>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="fw-bold d-block">Laura Hernández</span>
+                                <span class="cedula">CC 1.024.568.789</span>
+                            </td>
+                            <td>
+                                <span class="d-block texto-suave">13 Ago 2026</span>
+                                <span class="hora">03:20 PM</span>
+                            </td>
+                            <td>
+                                <span class="d-block">1 producto</span>
+                                <a href="#" class="ver-detalle">Ver detalle</a>
+                            </td>
+                            <td class="fw-bold">$34.000 COP</td>
+                            <td><span class="etiqueta etiqueta-amarillo"><i class="bi bi-cash-stack"></i> Efectivo</span></td>
+                            <td><span class="etiqueta etiqueta-amarillo"><i class="bi bi-clock"></i> Pendiente</span></td>
+                            <td class="text-center"><a href="#" class="btn btn-ver"><i class="bi bi-eye me-1"></i> Ver</a></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center gap-3">
+                                    <span class="icono-doc"><i class="bi bi-file-earmark-text"></i></span>
+                                    <span class="fw-bold">VEN-00121</span>
+                                </div>
+                            </td>
+                            <td>
+                                <span class="fw-bold d-block">Jorge Ramírez</span>
+                                <span class="cedula">CC 1.045.667.889</span>
+                            </td>
+                            <td>
+                                <span class="d-block texto-suave">12 Ago 2026</span>
+                                <span class="hora">11:10 AM</span>
+                            </td>
+                            <td>
+                                <span class="d-block">5 productos</span>
+                                <a href="#" class="ver-detalle">Ver detalle</a>
+                            </td>
+                            <td class="fw-bold">$312.500 COP</td>
+                            <td><span class="etiqueta etiqueta-verde"><i class="bi bi-cash-stack"></i> Efectivo</span></td>
+                            <td><span class="etiqueta etiqueta-verde"><i class="bi bi-check-circle"></i> Completada</span></td>
+                            <td class="text-center"><a href="#" class="btn btn-ver"><i class="bi bi-eye me-1"></i> Ver</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- 3. PIE DE PÁGINA INSTITUCIONAL -->
+    <footer class="footer-custom text-white text-center py-4 mt-5">
+        <div class="container">
+            <p class="mb-1 small">Desarrollado como proyecto de formación del SENA – Servicio Nacional de Aprendizaje, programa Tecnólogo en Análisis y Desarrollo de Software (ADSO).</p>
+            <p class="mb-1 small">&copy; 2026 AgroGest Distribuciones. Todos los derechos reservados.</p>
+            <p class="mb-0 small">Proyecto desarrollado con fines académicos.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle (menú móvil y lista de fechas) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

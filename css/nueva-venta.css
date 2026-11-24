@@ -1,0 +1,507 @@
+:root {
+    --agro-dark: #121212;        /* Fondo de la barra de navegación */
+    --agro-gold: #d28c00;        /* Dorado principal */
+    --agro-gold-hover: #b97800;  /* Dorado oscuro para hover */
+    --agro-gold-suave: #fff6e0;  /* Dorado muy claro para fondos de iconos */
+    --agro-borde: #eaeaea;       /* Bordes grises de tarjetas */
+    --agro-texto: #1f2430;       /* Texto principal */
+    --agro-rojo: #e5484d;        /* Eliminar y avisos */
+    --agro-verde: #12a36b;       /* Disponibilidad y descuentos */
+}
+
+body {
+    background-color: #fafafa;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: var(--agro-texto);
+}
+
+.text-agro {
+    color: var(--agro-gold) !important;
+}
+
+.texto-suave {
+    color: #6b7280;
+    font-size: 0.85rem;
+}
+
+.navbar-custom {
+    background-color: var(--agro-dark) !important;
+}
+
+.logo-nav {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+}
+.marca-nombre {
+    color: var(--agro-gold);
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.marca-sub {
+    color: #9aa0a6;
+    font-size: 0.6rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-top: 3px;
+}
+.navbar-custom .nav-link {
+    color: #ffffff !important;
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 2px solid transparent;
+}
+
+.navbar-custom .nav-link:hover,
+.navbar-custom .nav-link.active {
+    color: var(--agro-gold) !important;
+}
+
+/* La sección actual lleva una línea dorada debajo */
+.navbar-custom .nav-link.active {
+    border-bottom-color: var(--agro-gold);
+}
+
+.btn-admin {
+    color: var(--agro-gold);
+    border: 1px solid var(--agro-gold);
+    font-size: 0.8rem;
+    font-weight: 600;
+    background-color: transparent;
+}
+
+.btn-admin:hover {
+    background-color: var(--agro-gold);
+    color: #ffffff;
+}
+
+/* Encabezado de la página */
+.breadcrumb-agro {
+    font-size: 0.8rem;
+    color: #adb5bd;
+}
+
+.breadcrumb-agro a {
+    color: #6b7280;
+    text-decoration: none;
+}
+
+.breadcrumb-agro a:hover {
+    color: var(--agro-gold);
+}
+
+.titulo-pagina {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 0.25rem;
+}
+
+/* Botones */
+.btn-agro {
+    background-color: var(--agro-gold);
+    color: #ffffff;
+    font-weight: 600;
+    border: none;
+}
+
+.btn-agro:hover {
+    background-color: var(--agro-gold-hover);
+    color: #ffffff;
+}
+
+.btn-outline-agro {
+    background-color: #ffffff;
+    color: var(--agro-gold);
+    border: 1px solid var(--agro-gold);
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.btn-outline-agro:hover {
+    background-color: var(--agro-gold);
+    color: #ffffff;
+}
+
+.btn-cancelar {
+    background-color: #ffffff;
+    color: #374151;
+    border: 1px solid var(--agro-borde);
+    font-weight: 500;
+}
+
+.btn-cancelar:hover {
+    border-color: var(--agro-gold);
+    color: var(--agro-gold);
+}
+
+/*Tarjetas*/
+.tarjeta {
+    background-color: #ffffff;
+    border: 1px solid var(--agro-borde);
+    border-radius: 14px;
+}
+
+.titulo-seccion {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 1rem;
+}
+
+/* Sección 1: Cliente */
+.buscador-cliente {
+    position: relative;
+    min-width: 220px;
+}
+
+.icono-buscador {
+    position: absolute;
+    left: 0.85rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #5b4200;
+    pointer-events: none; /* el clic pasa al select */
+    z-index: 2;
+}
+
+.select-cliente {
+    background-color: #dbb05a;   /* tono dorado de la captura */
+    border: 1px solid #c99a3f;
+    color: #3b2a00;
+    font-size: 0.85rem;
+    padding-left: 2.4rem;
+    cursor: pointer;
+}
+
+.select-cliente:focus {
+    border-color: var(--agro-gold);
+    box-shadow: 0 0 0 0.2rem rgba(210, 140, 0, 0.2);
+}
+
+.cliente-elegido {
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    padding: 0.9rem 1.1rem;
+    font-size: 0.85rem;
+}
+
+.avatar-cliente {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background-color: #fdeab5;
+    color: var(--agro-gold);
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dato-gold {
+    font-size: 0.75rem;
+    color: var(--agro-gold);
+}
+
+.contacto-cliente {
+    font-size: 0.75rem;
+    color: var(--agro-gold);
+}
+
+.btn-quitar {
+    background: transparent;
+    border: 0;
+    color: var(--agro-rojo);
+    padding: 0.25rem 0.5rem;
+}
+
+.btn-quitar:hover {
+    color: #b3282d;
+}
+
+/*Sección 2: Productos */
+.buscador-producto .input-group-text {
+    background-color: #ffffff;
+    border: 1px solid var(--agro-gold);
+    border-right: 0;
+    color: var(--agro-gold);
+}
+
+.buscador-producto .form-control {
+    border: 1px solid var(--agro-gold);
+    border-left: 0;
+    font-size: 0.85rem;
+}
+
+.buscador-producto .form-control:focus,
+.select-categoria:focus {
+    border-color: var(--agro-gold);
+    box-shadow: 0 0 0 0.2rem rgba(210, 140, 0, 0.2);
+}
+
+.select-categoria {
+    width: auto;
+    min-width: 190px;
+    border: 1px solid var(--agro-gold);
+    font-size: 0.85rem;
+    color: #374151;
+}
+
+.tabla-productos {
+    min-width: 640px; /* en pantallas pequeñas aparece scroll horizontal */
+    font-size: 0.85rem;
+}
+
+.tabla-productos thead th {
+    color: #4b5563;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.75rem 0.5rem;
+    border-bottom: 1px solid var(--agro-borde);
+    white-space: nowrap;
+}
+
+.tabla-productos tbody td {
+    padding: 0.8rem 0.5rem;
+    border-color: var(--agro-borde);
+}
+
+.tabla-productos tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.icono-producto {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    background-color: var(--agro-gold);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nombre-producto {
+    color: var(--agro-gold);
+    font-weight: 700;
+}
+
+.detalle-producto {
+    font-size: 0.7rem;
+    color: #6b7280;
+}
+
+.disponibles {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--agro-verde);
+}
+
+.por-unidad,
+.unidad {
+    font-size: 0.72rem;
+    color: #6b7280;
+}
+
+/* Control de cantidad (- 2 +) */
+.stepper {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid #dcdfe4;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.stepper-btn {
+    background: #ffffff;
+    border: 0;
+    color: #374151;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stepper-btn:hover {
+    background-color: var(--agro-gold-suave);
+    color: var(--agro-gold);
+}
+
+.stepper-valor {
+    min-width: 32px;
+    text-align: center;
+    font-weight: 700;
+    color: var(--agro-gold);
+}
+
+/* Botón de eliminar (papelera) */
+.btn-eliminar {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    border: 1px solid var(--agro-rojo);
+    background-color: #fff5f5;
+    color: var(--agro-rojo);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-eliminar:hover {
+    background-color: var(--agro-rojo);
+    color: #ffffff;
+}
+
+.total-productos {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--agro-verde);
+}
+
+.aviso-stock {
+    font-size: 0.75rem;
+    color: var(--agro-rojo);
+}
+
+/* Resumen de la venta */
+.linea-resumen {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.4rem 0;
+    font-size: 0.85rem;
+}
+
+.campo-descuento {
+    width: 64px;
+    height: 30px;
+    padding: 0.2rem 0.5rem;
+    border: 1px solid var(--agro-gold);
+    border-radius: 6px;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.campo-descuento:focus {
+    border-color: var(--agro-gold);
+    box-shadow: 0 0 0 0.2rem rgba(210, 140, 0, 0.2);
+}
+
+.descuento-valor {
+    font-weight: 700;
+    color: var(--agro-verde);
+}
+
+.etiqueta-campo {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #374151;
+    margin-bottom: 0.5rem;
+    float: none;
+    width: auto;
+}
+
+.opcional {
+    font-weight: 400;
+    color: #9ca3af;
+}
+
+/* Métodos de pago: tres opciones, una seleccionada */
+.metodos-pago {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+}
+
+.metodo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    padding: 0.7rem 0.25rem;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: center;
+}
+
+.metodo i {
+    font-size: 1.05rem;
+}
+
+.metodo-efectivo      { background-color: #fff8e6; border-color: #f0d58a; color: #a86b00; }
+.metodo-nequi         { background-color: #f6eefd; border-color: #d9b8f3; color: #7b2cbf; }
+.metodo-transferencia { background-color: #eaf2fd; border-color: #b9d3f6; color: #1d5fb4; }
+
+/* Opción seleccionada: fondo más fuerte y borde más oscuro */
+.btn-check:checked + .metodo-efectivo      { 
+    background-color: #fdeab5; 
+    border-color: var(--agro-gold); 
+    box-shadow: 0 0 0 2px rgba(210, 140, 0, 0.25); 
+}
+.btn-check:checked + .metodo-nequi         { 
+    background-color: #ead6fa; 
+    border-color: #7b2cbf;          
+    box-shadow: 0 0 0 2px rgba(123, 44, 191, 0.2);
+ }
+.btn-check:checked + .metodo-transferencia {
+     background-color: #d6e6fb;
+      border-color: #1d5fb4;          
+      box-shadow: 0 0 0 2px rgba(29, 95, 180, 0.2); 
+    }
+
+.btn-check:focus-visible + .metodo {
+    outline: 2px solid #111827;
+    outline-offset: 2px;
+}
+
+.campo-observaciones {
+    border: 1px solid var(--agro-gold);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    resize: vertical;
+}
+
+.campo-observaciones:focus {
+    border-color: var(--agro-gold);
+    box-shadow: 0 0 0 0.2rem rgba(210, 140, 0, 0.2);
+}
+
+/* Caja del total */
+.total-pagar {
+    background-color: #f1e0bc;
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+.total-etiqueta {
+    margin: 0;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #b8860b;
+}
+
+.total-valor {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #b45309;
+}
+
+/* Pie de página (Footer)*/
+.footer-custom {
+    background-color: var(--agro-gold);
+    color: #ffffff;
+    width: 100%;
+    line-height: 1.6;
+}

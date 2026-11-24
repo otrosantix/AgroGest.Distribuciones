@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroGest - Nuevo Cliente</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Hoja de estilos de esta página -->
+    <link rel="stylesheet" href="css/nuevo-cliente.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- 1. BARRA DE NAVEGACIÓN -->
+    <nav class="navbar navbar-expand-lg navbar-custom px-4 py-3">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="img/Logo.jpg" alt="Logo AgroGest" class="logo-nav me-2">
+                <span class="d-flex flex-column lh-1">
+                    <span class="marca-nombre">AgroGest</span>
+                    <span class="marca-sub">Distribuciones</span>
+                </span>
+            </a>
+            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav" aria-controls="navbarNav"
+                    aria-expanded="false" aria-label="Abrir menú">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-3">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Inventario-admin.html">Inventario</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="ventas.html" aria-current="page">Ventas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Pedidos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Reportes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
+                </ul>
+                <div>
+                    <a href="#" class="btn btn-admin rounded-pill px-4">
+                        Administrador <i class="bi bi-person ms-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. CONTENIDO PRINCIPAL -->
+    <main class="container my-5 flex-grow-1">
+
+        <!-- Ruta de navegación -->
+        <div class="breadcrumb-agro mb-3">
+            <a href="index.html">Inicio</a>
+            <i class="bi bi-chevron-right mx-2"></i>
+            <a href="ventas.html">Ventas</a>
+            <i class="bi bi-chevron-right mx-2"></i>
+            <a href="nueva-venta.html">Nueva venta</a>
+            <i class="bi bi-chevron-right mx-2"></i>
+            <span class="text-agro">Nuevo cliente</span>
+        </div>
+
+        <!-- El formulario envuelve todo, para que "Guardar cliente" (arriba) lo envíe -->
+        <form id="form-cliente" action="nuevo-cliente.html" method="get">
+
+            <!-- Título y botones principales -->
+            <div class="d-flex flex-wrap justify-content-between align-items-start gap-3 mb-4">
+                <div>
+                    <h1 class="titulo-pagina">Nuevo <span class="text-agro">Cliente</span></h1>
+                    <p class="text-muted small mb-0">Registra un nuevo cliente para asociarlo a tus ventas.</p>
+                </div>
+                <div class="d-flex gap-2">
+                    <a href="nueva-venta.html" class="btn btn-cancelar d-flex align-items-center">
+                        <i class="bi bi-x-lg me-2"></i> Cancelar
+                    </a>
+                    <button type="submit" class="btn btn-agro d-flex align-items-center">
+                        <i class="bi bi-floppy me-2"></i> Guardar cliente
+                    </button>
+                </div>
+            </div>
+
+            <div class="row g-4">
+
+                <!-- COLUMNA IZQUIERDA: formulario en tres tarjetas -->
+                <div class="col-lg-8">
+
+                    <!-- Información personal -->
+                    <section class="tarjeta p-4 mb-4" aria-labelledby="titulo-personal">
+                        <h2 class="titulo-seccion" id="titulo-personal">
+                            <i class="bi bi-person me-2"></i> Información personal
+                        </h2>
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <label for="tipo-documento" class="etiqueta-campo">Tipo de documento <span class="obligatorio">*</span></label>
+                                <select id="tipo-documento" name="tipo-documento" class="form-select campo-agro" required>
+                                    <option selected>Cédula de ciudadanía</option>
+                                    <option>Cédula de extranjería</option>
+                                    <option>Tarjeta de identidad</option>
+                                    <option>Pasaporte</option>
+                                    <option>NIT</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="numero-documento" class="etiqueta-campo">Número de documento <span class="obligatorio">*</span></label>
+                                <input type="text" id="numero-documento" name="numero-documento" class="form-control campo-agro"
+                                       placeholder="Ej: 1.234.567.890" inputmode="numeric" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="fecha-nacimiento" class="etiqueta-campo">Fecha de nacimiento</label>
+                                <input type="date" id="fecha-nacimiento" name="fecha-nacimiento" class="form-control campo-agro"
+                                       autocomplete="bday">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="nombres" class="etiqueta-campo">Nombres <span class="obligatorio">*</span></label>
+                                <input type="text" id="nombres" name="nombres" class="form-control campo-agro"
+                                       placeholder="Ej: Carlos Andrés" autocomplete="given-name" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="apellidos" class="etiqueta-campo">Apellidos <span class="obligatorio">*</span></label>
+                                <input type="text" id="apellidos" name="apellidos" class="form-control campo-agro"
+                                       placeholder="Ej: Rodríguez Martínez" autocomplete="family-name" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="genero" class="etiqueta-campo">Género</label>
+                                <select id="genero" name="genero" class="form-select campo-agro">
+                                    <option value="" selected>Seleccionar género</option>
+                                    <option>Masculino</option>
+                                    <option>Femenino</option>
+                                    <option>Otro</option>
+                                    <option>Prefiero no decirlo</option>
+                                </select>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Información de contacto -->
+                    <section class="tarjeta p-4 mb-4" aria-labelledby="titulo-contacto">
+                        <h2 class="titulo-seccion" id="titulo-contacto">
+                            <i class="bi bi-telephone me-2"></i> Información de contacto
+                        </h2>
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <label for="telefono-celular" class="etiqueta-campo">Teléfono celular <span class="obligatorio">*</span></label>
+                                <input type="tel" id="telefono-celular" name="telefono-celular" class="form-control campo-agro"
+                                       placeholder="Ej: 300 123 4567" autocomplete="tel" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="telefono-fijo" class="etiqueta-campo">Teléfono fijo</label>
+                                <input type="tel" id="telefono-fijo" name="telefono-fijo" class="form-control campo-agro"
+                                       placeholder="Ej: 8 123 4567">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="correo" class="etiqueta-campo">Correo electrónico</label>
+                                <input type="email" id="correo" name="correo" class="form-control campo-agro"
+                                       placeholder="Ej: cliente@email.com" autocomplete="email">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="direccion" class="etiqueta-campo">Dirección <span class="obligatorio">*</span></label>
+                                <input type="text" id="direccion" name="direccion" class="form-control campo-agro"
+                                       placeholder="Ej: Carrera 10 # 25-30, Pesca, Boyacá" autocomplete="street-address" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="ciudad" class="etiqueta-campo">Ciudad / Municipio <span class="obligatorio">*</span></label>
+                                <select id="ciudad" name="ciudad" class="form-select campo-agro" required>
+                                    <option selected>Pesca</option>
+                                    <option>Tunja</option>
+                                    <option>Sogamoso</option>
+                                    <option>Duitama</option>
+                                    <option>Tibasosa</option>
+                                    <option>Bogotá</option>
+                                </select>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Información adicional -->
+                    <section class="tarjeta p-4" aria-labelledby="titulo-adicional">
+                        <h2 class="titulo-seccion" id="titulo-adicional">
+                            <i class="bi bi-file-earmark-text me-2"></i> Información adicional
+                        </h2>
+                        <label for="notas" class="etiqueta-campo">Notas <span class="opcional">(opcional)</span></label>
+                        <textarea id="notas" name="notas" class="form-control campo-agro" rows="4"
+                                  placeholder="Añadir notas o información adicional sobre el cliente..."></textarea>
+                    </section>
+                </div>
+
+                <!-- COLUMNA DERECHA: resumen del cliente -->
+                <div class="col-lg-4">
+                    <aside class="tarjeta p-4" aria-labelledby="titulo-resumen">
+                        <h2 class="titulo-seccion" id="titulo-resumen">
+                            <i class="bi bi-person-check me-2"></i> Resumen del cliente
+                        </h2>
+
+                        <div class="text-center mb-4">
+                            <span class="avatar-resumen"><i class="bi bi-person"></i></span>
+                            <p class="nombre-resumen">Sin nombre registrado</p>
+                            <p class="etiqueta-nuevo">Nuevo cliente</p>
+                        </div>
+
+                        <ul class="datos-resumen list-unstyled mb-4">
+                            <li>
+                                <span><i class="bi bi-credit-card-2-front me-2"></i> Documento:</span>
+                                <span class="dato-vacio">-</span>
+                            </li>
+                            <li>
+                                <span><i class="bi bi-telephone me-2"></i> Teléfono:</span>
+                                <span class="dato-vacio">-</span>
+                            </li>
+                            <li>
+                                <span><i class="bi bi-envelope me-2"></i> Correo:</span>
+                                <span class="dato-vacio">-</span>
+                            </li>
+                            <li>
+                                <span><i class="bi bi-geo-alt me-2"></i> Ciudad / Municipio:</span>
+                                <span class="dato-vacio">-</span>
+                            </li>
+                            <li>
+                                <span><i class="bi bi-send me-2"></i> Dirección:</span>
+                                <span class="dato-vacio">-</span>
+                            </li>
+                        </ul>
+
+                        <div class="aviso-resumen d-flex align-items-start gap-2" role="note">
+                            <i class="bi bi-info-circle-fill"></i>
+                            <span>Completa la información del cliente para poder guardarlo y asociarlo a tus ventas.</span>
+                        </div>
+                    </aside>
+                </div>
+
+            </div>
+        </form>
+    </main>
+
+    <!-- 3. PIE DE PÁGINA INSTITUCIONAL -->
+    <footer class="footer-custom text-white text-center py-4 mt-5">
+        <div class="container">
+            <p class="mb-1 small">Desarrollado como proyecto de formación del SENA – Servicio Nacional de Aprendizaje, programa Tecnólogo en Análisis y Desarrollo de Software (ADSO).</p>
+            <p class="mb-1 small">&copy; 2026 AgroGest Distribuciones. Todos los derechos reservados.</p>
+            <p class="mb-0 small">Proyecto desarrollado con fines académicos.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle (menú móvil) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
