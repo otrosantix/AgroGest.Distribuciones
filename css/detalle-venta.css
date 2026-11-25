@@ -1,94 +1,7 @@
+/* detalle-venta.css - Se carga después de css/common.css */
 
 :root {
-    --agro-dark: #121212;       
-    --agro-gold: #d28c00;        
-    --agro-gold-hover: #b97800;  
-    --agro-borde: #eaeaea;      
-    --agro-linea: #ecd9a0;       
-    --agro-texto: #1f2430;       
-    --agro-rojo: #e5484d;        
-    --agro-verde: #12a36b;       
-}
-
-body {
-    background-color: #fafafa;
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    color: var(--agro-texto);
-}
-
-.text-agro {
-    color: var(--agro-gold) !important;
-}
-
-/* Barra de navegación */
-.navbar-custom {
-    background-color: var(--agro-dark) !important;
-}
-
-.logo-nav {
-    width: 44px;
-    height: 44px;
-    object-fit: contain;
-}
-
-.marca-nombre {
-    color: var(--agro-gold);
-    font-size: 1.25rem;
-    font-weight: 700;
-}
-
-.marca-sub {
-    color: #9aa0a6;
-    font-size: 0.6rem;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    margin-top: 3px;
-}
-
-.navbar-custom .nav-link {
-    color: #ffffff !important;
-    font-weight: 500;
-    font-size: 0.9rem;
-    padding-bottom: 0.25rem;
-    border-bottom: 2px solid transparent;
-}
-
-.navbar-custom .nav-link:hover,
-.navbar-custom .nav-link.active {
-    color: var(--agro-gold) !important;
-}
-
-/* La sección actual lleva una línea dorada debajo */
-.navbar-custom .nav-link.active {
-    border-bottom-color: var(--agro-gold);
-}
-
-.btn-admin {
-    color: var(--agro-gold);
-    border: 1px solid var(--agro-gold);
-    font-size: 0.8rem;
-    font-weight: 600;
-    background-color: transparent;
-}
-
-.btn-admin:hover {
-    background-color: var(--agro-gold);
-    color: #ffffff;
-}
-
-/* Encabezado de la página */
-.breadcrumb-agro {
-    font-size: 0.8rem;
-    color: #adb5bd;
-}
-
-.breadcrumb-agro a {
-    color: #6b7280;
-    text-decoration: none;
-}
-
-.breadcrumb-agro a:hover {
-    color: var(--agro-gold);
+    --agro-linea: #ecd9a0;
 }
 
 .titulo-pagina {
@@ -97,35 +10,6 @@ body {
     color: #111827;
 }
 
-/* Botones */
-.btn-agro {
-    background-color: var(--agro-gold);
-    color: #ffffff;
-    font-weight: 600;
-    font-size: 0.85rem;
-    border: 1px solid var(--agro-gold);
-}
-
-.btn-agro:hover {
-    background-color: var(--agro-gold-hover);
-    border-color: var(--agro-gold-hover);
-    color: #ffffff;
-}
-
-.btn-outline-agro {
-    background-color: #ffffff;
-    color: #374151;
-    border: 1px solid var(--agro-gold);
-    font-weight: 500;
-    font-size: 0.85rem;
-}
-
-.btn-outline-agro:hover {
-    background-color: var(--agro-gold);
-    color: #ffffff;
-}
-
-/* Etiqueta de estado */
 .etiqueta {
     display: inline-flex;
     align-items: center;
@@ -137,7 +21,7 @@ body {
 }
 
 .etiqueta i {
-    font-size: 0.4rem;
+    font-size: 0.45rem;
 }
 
 .etiqueta-verde {
@@ -145,21 +29,24 @@ body {
     color: #17753f;
 }
 
-/* Tarjetas con borde dorado */
+.etiqueta-amarillo {
+    background-color: #fdf0c8;
+    color: #8a5a00;
+}
+
 .tarjeta-borde {
-    background-color: #ffffff;
-    border: 1px solid var(--agro-gold);
+    background-color: var(--blanco);
+    border: 1px solid var(--dorado);
     border-radius: 12px;
 }
 
-/* Tarjetas de datos principales */
 .icono-dato {
     width: 44px;
     height: 44px;
     flex-shrink: 0;
     border-radius: 10px;
     background-color: #fdf0b8;
-    color: var(--agro-gold);
+    color: var(--dorado-oscuro);
     font-size: 1.15rem;
     display: flex;
     align-items: center;
@@ -196,14 +83,13 @@ body {
     color: #9ca3af;
 }
 
-/* Cliente y total cancelado */
 .avatar-cliente {
     width: 48px;
     height: 48px;
     flex-shrink: 0;
     border-radius: 50%;
     background-color: #fdf0b8;
-    color: var(--agro-gold);
+    color: var(--dorado-oscuro);
     font-size: 1.3rem;
     display: flex;
     align-items: center;
@@ -223,7 +109,7 @@ body {
 }
 
 .valor-gold {
-    color: var(--agro-gold);
+    color: var(--dorado-oscuro);
 }
 
 .separador {
@@ -245,7 +131,7 @@ body {
     font-size: 1.6rem;
     font-weight: 800;
     line-height: 1.15;
-    color: var(--agro-gold);
+    color: var(--dorado-oscuro);
 }
 
 .pendiente-valor {
@@ -258,18 +144,17 @@ body {
 .divisor-vertical {
     width: 1px;
     align-self: stretch;
-    background-color: var(--agro-borde);
+    background-color: var(--borde-suave);
 }
 
-/* Tabla de productos vendidos */
 .tarjeta-tabla {
-    overflow: hidden; /* recorta las esquinas de la tabla */
+    overflow: hidden;
 }
 
 .tabla-cabecera {
     background-color: #f8f9fb;
     padding: 1rem 1.25rem;
-    border-bottom: 1px solid var(--agro-borde);
+    border-bottom: 1px solid var(--borde-suave);
 }
 
 .titulo-tabla {
@@ -281,7 +166,7 @@ body {
 }
 
 .titulo-tabla i {
-    color: var(--agro-gold);
+    color: var(--dorado);
 }
 
 .nota-iva {
@@ -291,7 +176,7 @@ body {
 }
 
 .tabla-detalle {
-    min-width: 560px; /* en pantallas pequeñas aparece scroll horizontal */
+    min-width: 560px;
     font-size: 0.85rem;
 }
 
@@ -332,7 +217,6 @@ body {
     color: #9ca3af;
 }
 
-/* Nota legal y totales */
 .pie-detalle {
     padding: 1.5rem 1.25rem;
     margin: 0;
@@ -360,7 +244,7 @@ body {
 
 .linea-total dt {
     font-weight: 400;
-    color: var(--agro-gold);
+    color: var(--dorado-oscuro);
 }
 
 .valor-verde {
@@ -387,27 +271,18 @@ body {
 .linea-final dd {
     font-size: 1.5rem;
     font-weight: 800;
-    color: var(--agro-gold);
+    color: var(--dorado-oscuro);
 }
 
-/* Pie de página (Footer) */
-.footer-custom {
-    background-color: var(--agro-gold);
-    color: #ffffff;
-    width: 100%;
-    line-height: 1.6;
-}
-
-/* Impresión: se oculta todo lo que no sea la factura */
 @media print {
-    .navbar-custom,
-    .footer-custom,
+    .navbar-agrogest,
+    .footer-agrogest,
     .acciones-pagina,
     .breadcrumb-agro {
         display: none !important;
     }
 
     body {
-        background-color: #ffffff;
+        background-color: var(--blanco);
     }
 }

@@ -1,20 +1,37 @@
-/* Dagiti custom styles para iti Bootstrap */
-:root {
-    --bs-warning: #d28c00;
-    --bs-warning-rgb: 210, 140, 0;
+/* codigo-de-verificacion.css - Se carga después de css/common.css */
+
+.titulo-verificacion {
+    color: var(--dorado);
 }
 
-.btn-warning:hover {
-    background-color: #b97800 !important;
-    border-color: #b97800 !important;
+.btn-verificar {
+    background-color: var(--dorado);
+    border-color: var(--dorado);
+    color: #fff;
 }
 
-/* Estilo para iti focus kadagiti input ti codigo */
-.form-control:focus {
-    border-color: #d28c00 !important;
-    box-shadow: 0 0 0 0.25rem rgba(210, 140, 0, 0.25) !important;
+.btn-verificar:hover,
+.btn-verificar:focus {
+    background-color: var(--dorado-oscuro);
+    border-color: var(--dorado-oscuro);
+    color: #fff;
 }
 
-a:hover {
+.link-dorado {
+    color: var(--dorado);
+}
+
+.link-dorado:hover {
+    color: var(--dorado-oscuro);
     text-decoration: underline !important;
+}
+
+.otp-input {
+    width: 50px;
+    height: 55px;
+}
+
+.otp-input:focus {
+    border-color: var(--dorado);
+    box-shadow: 0 0 0 0.2rem rgba(216, 149, 0, 0.22);
 }

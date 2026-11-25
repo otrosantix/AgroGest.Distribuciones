@@ -1,40 +1,28 @@
-:root {
-  --color-principal: #CA8A04;
-  --color-principal-hover: #A16F03;
-  --color-principal-rgb: 202, 138, 4;
-}
+/* Recupera-tu-acceso.css - Se carga después de css/common.css */
 
-/* Texto */
 .text-principal {
-  color: var(--color-principal) !important;
+    color: var(--dorado) !important;
 }
 
-/* Fondo */
 .bg-principal {
-  background-color: var(--color-principal) !important;
+    background-color: var(--dorado) !important;
 }
 
-/* Botón */
 .btn-principal {
-  background-color: var(--color-principal);
-  border-color: var(--color-principal);
-  color: #fff;
+    background-color: var(--dorado);
+    border-color: var(--dorado);
+    color: #fff;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .btn-principal:hover,
 .btn-principal:focus {
-  background-color: var(--color-principal-hover);
-  border-color: var(--color-principal-hover);
-  color: #fff;
+    background-color: var(--dorado-oscuro);
+    border-color: var(--dorado-oscuro);
+    color: #fff;
 }
-.btn-principal {
-    background-color: #CA8A04 !important;
-    border-color: #CA8A04 !important;
-    color: #fff !important;
-  }
-  .btn-principal:hover,
-  .btn-principal:focus {
-    background-color: #A16F03 !important;
-    border-color: #A16F03 !important;
-    color: #fff !important;
-  }
+
+.form-control:focus {
+    border-color: var(--dorado);
+    box-shadow: 0 0 0 0.2rem rgba(216, 149, 0, 0.22);
+}

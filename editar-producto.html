@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AgroGest - Editar Producto</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="css/index-portal.css">
-    <link rel="stylesheet" href="css/editar-producto.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/productos.css">
 </head>
 <body class="d-flex flex-column min-vh-100">
 
@@ -31,12 +34,11 @@
             <div class="collapse navbar-collapse" id="menuPrincipal">
                 <ul class="navbar-nav mx-auto gap-lg-3">
                     <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="productos.html">Productos</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="productos.html" aria-current="page">Productos</a></li>
                     <li class="nav-item"><a class="nav-link" href="Inventario-admin.html">Inventario</a></li>
                     <li class="nav-item"><a class="nav-link" href="ventas.html">Ventas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="pedidos.html">Pedidos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="control-pedidos.html">Pedidos</a></li>
                     <li class="nav-item"><a class="nav-link" href="reportes.html">Reportes</a></li>
-                    <li class="nav-item"><a class="nav-link" href="clientes.html">Clientes</a></li>
                     <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
                 </ul>
 
@@ -59,92 +61,104 @@
         </div>
     </nav>
 
-    <main class="flex-grow-1 container my-5">
-        <div class="mb-2 text-uppercase small text-muted fw-bold">
-            <a href="productos.html" class="text-decoration-none text-muted">Productos</a> <span class="mx-1">></span> <span class="text-dark">Editar producto</span>
-        </div>
+    <main class="flex-grow-1 container page-main">
+        <nav class="migas" aria-label="Ruta de navegación">
+            <a href="index.html">Inicio</a> /
+            <a href="productos.html">Productos</a> /
+            <span>Editar producto</span>
+        </nav>
 
         <div class="mb-4">
-            <h2 class="display-6 fw-bold text-dark-custom m-0">
+            <h1 class="display-6 fw-bold text-dark-custom m-0">
                 Editar <span class="text-agro">producto</span>
-            </h2>
+            </h1>
             <p class="text-muted mt-1">Modifica la información del producto seleccionado.</p>
         </div>
 
         <div class="form-card p-4 p-md-5">
-            <form action="productos.html">
+            <form id="formProducto" data-mode="edit" action="productos.html" novalidate>
                 <div class="row g-4">
                     <div class="col-lg-9">
                         <div class="row g-3">
                             <div class="col-md-4">
-                                <label class="form-label small fw-bold">Código del producto <span class="text-danger">*</span></label>
+                                <label for="prodCodigo" class="form-label small fw-bold">Código del producto <span class="text-danger">*</span></label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" value="PRO-0051">
+                                    <input type="text" id="prodCodigo" class="form-control" value="PRO-0001" required>
                                     <span class="input-group-text bg-white"><i class="bi bi-upc"></i></span>
+                                    <div class="invalid-feedback">Ingresa el código del producto.</div>
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <label class="form-label small fw-bold">Nombre del producto <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" value="Semilla de Maíz Híbrido">
+                                <label for="prodNombre" class="form-label small fw-bold">Nombre del producto <span class="text-danger">*</span></label>
+                                <input type="text" id="prodNombre" class="form-control" value="Semilla de Maíz Híbrido" required>
+                                <div class="invalid-feedback">Ingresa el nombre del producto.</div>
                             </div>
                             <div class="col-md-4">
-                                <label class="form-label small fw-bold">Marca</label>
-                                <input type="text" class="form-control" value="Agroseed">
-                            </div>
-
-                            <div class="col-md-4">
-                                <label class="form-label small fw-bold">Categoría <span class="text-danger">*</span></label>
-                                <select class="form-select">
-                                    <option selected>Semillas</option>
-                                    <option>Fertilizantes</option>
-                                    <option>Herramientas</option>
-                                </select>
-                            </div>
-                            <div class="col-md-4">
-                                <label class="form-label small fw-bold">Proveedor <span class="text-danger">*</span></label>
-                                <select class="form-select">
-                                    <option selected>AgroPro</option>
-                                </select>
-                            </div>
-                            <div class="col-md-4">
-                                <label class="form-label small fw-bold">NIT del proveedor <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" value="900.123.456-7">
+                                <label for="prodMarca" class="form-label small fw-bold">Marca</label>
+                                <input type="text" id="prodMarca" class="form-control" value="Agroseed">
                             </div>
 
                             <div class="col-md-4">
-                                <label class="form-label small fw-bold">Presentación</label>
-                                <input type="text" class="form-control" value="Bolsa x 1 Kg">
-                            </div>
-                            <div class="col-md-4">
-                                <label class="form-label small fw-bold">Unidad de medida <span class="text-danger">*</span></label>
-                                <select class="form-select">
-                                    <option selected>Kilogramos (kg)</option>
+                                <label for="prodCategoria" class="form-label small fw-bold">Categoría <span class="text-danger">*</span></label>
+                                <select id="prodCategoria" class="form-select" required>
+                                    <option value="Semillas" selected>Semillas</option>
+                                    <option value="Fertilizantes">Fertilizantes</option>
+                                    <option value="Herramientas">Herramientas</option>
                                 </select>
                             </div>
                             <div class="col-md-4">
-                                <label class="form-label small fw-bold">Estado <span class="text-danger">*</span></label>
-                                <select class="form-select">
-                                    <option selected>Activo</option>
-                                    <option>Inactivo</option>
+                                <label for="prodProveedor" class="form-label small fw-bold">Proveedor <span class="text-danger">*</span></label>
+                                <select id="prodProveedor" class="form-select" required>
+                                    <option value="AgroPro S.A.S." selected>AgroPro S.A.S.</option>
+                                    <option value="Distribuciones Agrícolas Ltda.">Distribuciones Agrícolas Ltda.</option>
+                                    <option value="Insumos del Campo S.A.">Insumos del Campo S.A.</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="prodNit" class="form-label small fw-bold">NIT del proveedor <span class="text-danger">*</span></label>
+                                <input type="text" id="prodNit" class="form-control" value="900.123.456-7" required>
+                                <div class="invalid-feedback">Ingresa el NIT del proveedor.</div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="prodPresentacion" class="form-label small fw-bold">Presentación</label>
+                                <input type="text" id="prodPresentacion" class="form-control" value="Bolsa x 1 Kg">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="prodUnidad" class="form-label small fw-bold">Unidad de medida <span class="text-danger">*</span></label>
+                                <select id="prodUnidad" class="form-select" required>
+                                    <option value="Kilogramos (kg)" selected>Kilogramos (kg)</option>
+                                    <option value="Litros (L)">Litros (L)</option>
+                                    <option value="Unidades">Unidades</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="prodEstado" class="form-label small fw-bold">Estado <span class="text-danger">*</span></label>
+                                <select id="prodEstado" class="form-select" required>
+                                    <option value="Activo" selected>Activo</option>
+                                    <option value="Inactivo">Inactivo</option>
                                 </select>
                             </div>
 
                             <div class="col-md-4">
-                                <label class="form-label small fw-bold">Precio de compra <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" value="$ 35000">
+                                <label for="prodPrecioCompra" class="form-label small fw-bold">Precio de compra <span class="text-danger">*</span></label>
+                                <input type="number" min="1" id="prodPrecioCompra" class="form-control" value="35000" required>
+                                <div class="invalid-feedback">Ingresa un precio de compra válido.</div>
                             </div>
                             <div class="col-md-4">
-                                <label class="form-label small fw-bold">Precio de venta <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" value="$ 45000">
+                                <label for="prodPrecioVenta" class="form-label small fw-bold">Precio de venta <span class="text-danger">*</span></label>
+                                <input type="number" min="1" id="prodPrecioVenta" class="form-control" value="45000" required>
+                                <div class="invalid-feedback">Ingresa un precio de venta válido.</div>
                             </div>
                             <div class="col-md-4">
-                                <label class="form-label small fw-bold">Stock mínimo <span class="text-danger">*</span></label>
-                                <input type="number" class="form-control" value="50">
+                                <label for="prodStockMin" class="form-label small fw-bold">Stock mínimo <span class="text-danger">*</span></label>
+                                <input type="number" min="0" id="prodStockMin" class="form-control" value="50" required>
+                                <div class="invalid-feedback">Ingresa el stock mínimo.</div>
                             </div>
 
                             <div class="col-12">
-                                <label class="form-label small fw-bold">Descripción</label>
-                                <textarea class="form-control" rows="3">Semilla de alta calidad, ideal para climas templados y cálidos.</textarea>
+                                <label for="prodDescripcion" class="form-label small fw-bold">Descripción</label>
+                                <textarea id="prodDescripcion" class="form-control" rows="3">Semilla de alta calidad, ideal para climas templados y cálidos.</textarea>
                             </div>
                         </div>
                     </div>
@@ -153,17 +167,19 @@
                     <div class="col-lg-3">
                         <label class="form-label small fw-bold mb-2">Imagen actual</label>
                         <div class="upload-box">
-                            <i class="bi bi-flower1 text-agro fs-1 mb-2"></i>
+                            <img id="previewImagenProducto" src="" alt="Vista previa del producto" class="upload-preview" hidden>
+                            <i id="iconoImagenDefecto" class="bi bi-flower1 text-agro fs-1 mb-2"></i>
                             <p class="fw-bold mb-1 small">Imagen actual</p>
                             <p class="text-muted small mb-3" style="font-size: 0.75rem;">JPG, PNG o WEBP.<br>Máx. 2MB</p>
-                            <button type="button" class="btn btn-outline-agro btn-sm rounded-pill px-3">Cambiar imagen</button>
+                            <input type="file" id="inputImagenProducto" accept="image/jpeg,image/png,image/webp" hidden>
+                            <button type="button" id="btnSeleccionarImagen" class="btn btn-outline-agro btn-sm rounded-pill px-3">Cambiar imagen</button>
                         </div>
                     </div>
                 </div>
 
                 <div class="d-flex justify-content-end gap-2 mt-5 pt-3 border-top">
                     <a href="productos.html" class="btn btn-outline-secondary px-4 py-2">Cancelar</a>
-                   <button type="submit" class="btn btn-agro px-4 py-2">Actualizar producto</button>
+                    <button type="submit" class="btn btn-agro px-4 py-2">Actualizar producto</button>
                 </div>
             </form>
         </div>
@@ -177,5 +193,7 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/producto-form.js"></script>
 </body>
 </html>

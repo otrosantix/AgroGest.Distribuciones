@@ -1,25 +1,4 @@
-/* perfil.css — se carga DESPUÉS de index-portal.css (usa sus variables) */
-
-.perfil-main {
-    padding-top: 40px;
-    padding-bottom: 60px;
-    background-color: var(--gris-fondo);
-}
-
-.migas {
-    font-size: 13px;
-    margin-bottom: 8px;
-    color: var(--gris-texto);
-}
-
-.migas a {
-    color: var(--gris-texto);
-    text-decoration: none;
-}
-
-.migas a:hover {
-    color: var(--dorado-oscuro);
-}
+/* perfil.css - Se carga después de css/common.css */
 
 .perfil-titulo {
     font-size: 28px;
@@ -31,10 +10,9 @@
 .perfil-subtitulo {
     font-size: 14px;
     color: var(--gris-texto);
-    margin-bottom: 28px;
+    margin-bottom: 24px;
 }
 
-/* ---------- Tarjetas ---------- */
 .tarjeta-perfil {
     background-color: var(--blanco);
     border: 1px solid #ececec;
@@ -50,7 +28,6 @@
     margin: 0;
 }
 
-/* ---------- Datos personales ---------- */
 .avatar {
     width: 84px;
     height: 84px;
@@ -98,7 +75,6 @@
     word-break: break-word;
 }
 
-/* ---------- Botones ---------- */
 .btn-dorado {
     background-color: var(--dorado);
     color: var(--negro);
@@ -133,7 +109,6 @@
     color: var(--negro);
 }
 
-/* ---------- Tabla de cuentas ---------- */
 .tabla-cuentas {
     font-size: 14px;
     margin-bottom: 0;
@@ -211,29 +186,6 @@
     margin-left: 6px;
 }
 
-/* ---------- Modal ---------- */
-.modal-agrogest .modal-title {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.modal-agrogest .form-label {
-    font-size: 14px;
-    font-weight: 600;
-}
-
-.modal-agrogest .form-control:focus,
-.modal-agrogest .form-select:focus {
-    border-color: var(--dorado);
-    box-shadow: 0 0 0 0.2rem rgba(216, 149, 0, 0.25);
-}
-
-@media (max-width: 575.98px) {
-    .perfil-titulo { font-size: 24px; }
-    .tarjeta-perfil { padding: 18px; }
-}
-
-/* ---------- Botón editar de la tabla ---------- */
 .btn-editar {
     border: 1px solid var(--dorado);
     color: var(--dorado-oscuro);
@@ -248,4 +200,24 @@
 .btn-editar:focus {
     background-color: var(--dorado);
     color: var(--negro);
+}
+
+.btn-eliminar-cuenta {
+    border: 1px solid var(--agro-rojo);
+    color: var(--agro-rojo);
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 4px 10px;
+    background-color: transparent;
+}
+
+.btn-eliminar-cuenta:hover {
+    background-color: var(--agro-rojo);
+    color: var(--blanco);
+}
+
+@media (max-width: 575.98px) {
+    .perfil-titulo { font-size: 24px; }
+    .tarjeta-perfil { padding: 18px; }
 }

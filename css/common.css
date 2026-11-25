@@ -1,0 +1,280 @@
+/* =========================================================
+   AgroGest Distribuciones - Estilos Compartidos (common.css)
+   Referencia visual unificada basada en index.html
+   ========================================================= */
+
+:root {
+    --negro: #0b0b0b;
+    --dorado: #d89500;
+    --dorado-oscuro: #b87800;
+    --dorado-suave: #fff6e0;
+    --blanco: #ffffff;
+    --gris-fondo: #fafafa;
+    --gris-texto: #687282;
+    --gris-claro: #dddddd;
+    --borde-suave: #eaeaea;
+
+    /* Alias compatibles para hojas de estilo de módulos */
+    --agro-dark: var(--negro);
+    --agro-gold: var(--dorado);
+    --agro-gold-hover: var(--dorado-oscuro);
+    --agro-gold-suave: var(--dorado-suave);
+    --agro-borde: var(--borde-suave);
+    --agro-texto: #1f2430;
+    --agro-gris: var(--gris-texto);
+    --agro-rojo: #e5484d;
+    --agro-verde: #12a36b;
+}
+
+body {
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    background-color: var(--gris-fondo);
+    color: var(--negro);
+    margin: 0;
+}
+
+/* ---------- Barra de navegación unificada (referencia index.html) ---------- */
+.navbar-agrogest {
+    background-color: var(--negro);
+    min-height: 56px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.navbar-agrogest .navbar-brand img {
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.titulo-logo {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+}
+
+.titulo-logo-nombre {
+    color: var(--dorado);
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.titulo-logo-sub {
+    color: var(--dorado);
+    font-size: 9px;
+    text-transform: uppercase;
+    margin-top: 2px;
+}
+
+.navbar-agrogest .nav-link {
+    color: #d5d5d5;
+    font-size: 12px;
+    font-weight: 500;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.navbar-agrogest .nav-link:hover,
+.navbar-agrogest .nav-link:focus,
+.navbar-agrogest .nav-link.active {
+    color: var(--dorado);
+}
+
+.navbar-agrogest .nav-link:hover {
+    transform: translateY(-2px);
+}
+
+.navbar-agrogest .nav-link.active {
+    border-bottom: 2px solid var(--dorado);
+}
+
+.navbar-agrogest .navbar-toggler {
+    border-color: var(--dorado);
+}
+
+.navbar-agrogest .navbar-toggler-icon {
+    filter: invert(58%) sepia(90%) saturate(900%) hue-rotate(10deg);
+}
+
+/* Botón con borde dorado (Administrador) */
+.btn-sesion {
+    border: 1px solid var(--dorado);
+    border-radius: 20px;
+    padding: 6px 25px;
+    color: var(--dorado);
+    font-size: 11px;
+    background: transparent;
+    transition: 0.3s;
+}
+
+.btn-sesion:hover,
+.btn-sesion:focus,
+.btn-sesion.show {
+    background-color: var(--dorado);
+    color: var(--negro);
+    border-color: var(--dorado);
+}
+
+/* Menú desplegable del administrador */
+.dropdown-menu-agrogest {
+    background-color: var(--negro);
+    border: 1px solid var(--dorado);
+    font-size: 12px;
+}
+
+.dropdown-menu-agrogest .dropdown-header {
+    color: var(--dorado);
+}
+
+.dropdown-menu-agrogest .dropdown-item {
+    color: #d5d5d5;
+}
+
+.dropdown-menu-agrogest .dropdown-item:hover,
+.dropdown-menu-agrogest .dropdown-item.active {
+    background-color: var(--dorado);
+    color: var(--negro);
+}
+
+.dropdown-menu-agrogest .dropdown-divider {
+    border-color: #333;
+}
+
+/* ---------- Contenedores y utilidades compartidas ---------- */
+.page-main {
+    padding-top: 2.25rem;
+    padding-bottom: 3.5rem;
+}
+
+.texto-dorado,
+.text-agro {
+    color: var(--dorado) !important;
+}
+
+.text-dark-custom {
+    color: #131b2b;
+    font-weight: 700;
+}
+
+.migas,
+.breadcrumb-agro {
+    font-size: 0.82rem;
+    color: var(--gris-texto);
+    margin-bottom: 1rem;
+}
+
+.migas a,
+.breadcrumb-agro a {
+    color: var(--gris-texto);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.migas a:hover,
+.breadcrumb-agro a:hover {
+    color: var(--dorado-oscuro);
+}
+
+.btn-agro {
+    background-color: var(--dorado);
+    color: var(--blanco);
+    font-weight: 600;
+    font-size: 0.875rem;
+    border: 1px solid var(--dorado);
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-agro:hover,
+.btn-agro:focus {
+    background-color: var(--dorado-oscuro);
+    border-color: var(--dorado-oscuro);
+    color: var(--blanco);
+}
+
+.btn-outline-agro {
+    color: var(--dorado-oscuro);
+    border: 1px solid var(--dorado);
+    font-weight: 600;
+    font-size: 0.875rem;
+    background-color: var(--blanco);
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-outline-agro:hover,
+.btn-outline-agro:focus {
+    background-color: var(--dorado);
+    border-color: var(--dorado);
+    color: var(--negro);
+}
+
+.tarjeta-agro {
+    background-color: var(--blanco);
+    border: 1px solid var(--borde-suave);
+    border-radius: 14px;
+}
+
+/* ---------- Pie de página unificado (referencia index.html) ---------- */
+.footer-agrogest {
+    background-color: var(--dorado);
+    color: var(--blanco);
+    padding: 20px 30px;
+    width: 100%;
+    margin-top: auto;
+}
+
+.footer-agrogest p {
+    margin: 0 0 4px 0;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.footer-agrogest p:last-child {
+    margin-bottom: 0;
+}
+
+/* ---------- Notificación flotante ligera ---------- */
+.agro-toast {
+    position: fixed;
+    left: 50%;
+    bottom: 24px;
+    transform: translate(-50%, 16px);
+    padding: 10px 18px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--blanco);
+    background-color: #131b2b;
+    border-left: 4px solid var(--dorado);
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 1080;
+    max-width: 90vw;
+}
+
+.agro-toast.is-visible {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+.agro-toast.is-error {
+    border-left-color: var(--agro-rojo);
+}
+
+.agro-toast.is-success {
+    border-left-color: var(--agro-verde);
+}
+
+/* ---------- Responsive navbar ---------- */
+@media (max-width: 991.98px) {
+    .navbar-agrogest .navbar-collapse {
+        padding: 10px 0;
+    }
+
+    .navbar-agrogest .nav-link.active {
+        border-bottom: none;
+    }
+
+    .navbar-agrogest .nav-link:hover {
+        transform: none;
+    }
+}

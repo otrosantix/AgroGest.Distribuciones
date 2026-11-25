@@ -1,18 +1,17 @@
 <!DOCTYPE html>
-<html lang='es'>
+<html lang="es">
 <head>
-    <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <title>Inventario Administrador</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Inventario Administrador - AgroGest</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="css/index-portal.css">
-    <link rel="stylesheet" href="css/Inventario-admin.css">
-    <!-- FontAwesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts (Inter) -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/Inventario-admin.css">
 </head>
 <body class="d-flex flex-column min-vh-100">
 
@@ -37,9 +36,9 @@
                 <ul class="navbar-nav mx-auto gap-lg-3">
                     <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
                     <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="Inventario-admin.html">Inventario</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="Inventario-admin.html" aria-current="page">Inventario</a></li>
                     <li class="nav-item"><a class="nav-link" href="ventas.html">Ventas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="pedidos.html">Pedidos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="control-pedidos.html">Pedidos</a></li>
                     <li class="nav-item"><a class="nav-link" href="reportes.html">Reportes</a></li>
                     <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
                 </ul>
@@ -63,179 +62,169 @@
         </div>
     </nav>
 
-<!-- Contenido principal -->
-<main class="container main-content flex-grow-1">
+    <!-- Contenido principal -->
+    <main class="container page-main flex-grow-1">
 
-<!-- Migas de pan -->
-<div class="migas">
-<a href="index.html">Inicio</a> 
-<i class="fa-solid fa-chevron-right" style="font-size: 8px; margin: 0 8px; color: #E6B325;"></i> 
-<span style="color: #E6B325;">Inventario</span>
-</div>
+        <!-- Migas de pan -->
+        <nav class="migas" aria-label="Ruta de navegación">
+            <a href="index.html">Inicio</a> / <span>Inventario</span>
+        </nav>
 
-<div class="row align-items-center mb-4">
-<div class="col-md-7">
-<h1><strong> Control de </strong><span class="texto-dorado"><strong> Inventario </strong></span></h1>
-<p class="subtitulo">Administra y ajusta el stock de tus productos en tiempo real.</p>
-</div>
+        <div class="row align-items-center gy-3 mb-4">
+            <div class="col-md-7">
+                <h1 class="display-6 fw-bold text-dark-custom m-0">
+                    Control de <span class="texto-dorado">Inventario</span>
+                </h1>
+                <p class="text-muted mt-1 mb-0">Administra y ajusta el stock de tus productos en tiempo real.</p>
+            </div>
 
-<div class="col-md-5 text-end">
-<button class="btn-accion"><i class="fa-solid fa-download"></i> Exportar reporte</button>
-<a href="Registrar-nuevo-ingreso.html" class="text-decoration-none">
-<button class="btn-accion2"><i class="fa-solid fa-plus"></i> Nuevo ingreso</button>
-</a>
-</div>
-</div>
-
-<!-- Tabla de productos -->
-<div class="table-responsive tabla-container">
-<table class="table">
-<thead>
-<tr>
-<th style="width: 30%; color: black;">Producto</th>
-<th style="width: 15%; color: black;">Categoría</th>
-<th style="width: 15%; color: black;">Stock Actual</th>
-<th style="width: 15%; color: black;">Stock Mín.</th>
-<th style="width: 15%; color: black;">Estado</th>
-<th style="width: 10%; color: black;">Acciones</th>
-</tr>
-</thead>
-<tbody>
-
-<!-- Fila 1 -->
-<tr>
-<td>
-<div class="d-flex align-items-center gap-3">
-<div class="icon-box"><i class="fa-solid fa-seedling"></i></div>
-<div>
-<span class="producto-nombre">Semilla de Maíz Híbrido</span>
-<span class="producto-codigo">Cod: PRO-0001</span>
-</div>
-</div>
-</td>
-<td>Semillas</td>
-<td class="fw-bold">120 <small class="text-muted fw-normal">Kg</small></td>
-<td class="text-muted">50 Kg</td>
-<td>
-<span class="estado-texto verde"><i class="fa-solid fa-check-circle"></i> Estable</span>
-</td>
-<td>
-<a href="#" class="btn-config"><i class="fa-solid fa-gear"></i> Configurar</a>
-</td>
-</tr>
-
-<!-- Fila 2 -->
-<tr>
-<td>
-<div class="d-flex align-items-center gap-3">
-<div class="icon-box"><i class="fa-solid fa-droplet"></i></div>
-<div>
-<span class="producto-nombre">Fertilizante Líquido</span>
-<span class="producto-codigo">Cod: PRO-0103</span>
-</div>
-</div>
-</td>
-<td>Fertilizantes</td>
-<td class="fw-bold">25 <small class="text-muted fw-normal">L</small></td>
-<td class="text-muted">40 L</td>
-<td>
-<span class="estado-texto rojo"><i class="fa-solid fa-triangle-exclamation"></i> Bajo stock</span>
-</td>
-<td>
-<a href="#" class="btn-config"><i class="fa-solid fa-gear"></i> Configurar</a>
-</td>
-</tr>
-
-<!-- Fila 3 -->
-<tr>
-<td>
-<div class="d-flex align-items-center gap-3">
-<div class="icon-box"><i class="fa-solid fa-spray-can"></i></div>
-<div>
-<span class="producto-nombre">Pulverizadora Manual</span>
-<span class="producto-codigo">Cod: PRO-0052</span>
-</div>
-</div>
-</td>
-<td>Herramientas</td>
-<td class="fw-bold">8 <small class="text-muted fw-normal">Unidades</small></td>
-<td class="text-muted">5 Unidades</td>
-<td>
-<span class="estado-texto naranja"><i class="fa-solid fa-circle-exclamation"></i> Próximo a agotar</span>
-</td>
-<td>
-<a href="#" class="btn-config"><i class="fa-solid fa-gear"></i> Configurar</a>
-</td>
-</tr>
-
-</tbody>
-</table>
-</div>
-</div>
-
-
-
-<!-- Modal Configurar Stock -->
-<div class="modal fade" id="modalStock" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content modal-stock">
-
-      <div class="modal-header border-0">
-        <h5 class="modal-title"><strong>Configurar <span class="texto-dorado">Stock</span></strong></h5>
-        <button type="button" class="btn-cerrar" data-bs-dismiss="modal">&times;</button>
-      </div>
-
-      <div class="modal-body">
-
-        <!-- Tarjeta con los datos del producto -->
-        <div class="info-producto">
-          <div>
-            <span class="producto-nombre" id="modalNombre"></span>
-            <small id="modalDetalle"></small>
-          </div>
-          <span class="stock-grande" id="modalStockActual">0</span>
+            <div class="col-md-5 d-flex flex-wrap justify-content-md-end gap-2">
+                <button type="button" id="btnExportarInventario" class="btn-accion">
+                    <i class="fa-solid fa-download"></i> Exportar reporte
+                </button>
+                <a href="Registrar-nuevo-ingreso.html" class="btn-accion2">
+                    <i class="fa-solid fa-plus"></i> Nuevo ingreso
+                </a>
+            </div>
         </div>
 
-        <!-- Tipo de ajuste -->
-        <label class="etiqueta">Tipo de ajuste *</label>
-        <select class="form-select campo" id="tipoAjuste">
-          <option value=""selected disabled>Selecciona el tipo de ajuste</option>
-          <option value="entrada">Entrada</option>
-          <option value="salida">Salida</option>
-          <option value="correccion">Corrección</option>
-        </select>
+        <!-- Tabla de productos -->
+        <div class="table-responsive tabla-container">
+            <table class="table" id="tablaInventario">
+                <thead>
+                    <tr>
+                        <th style="width: 30%;">Producto</th>
+                        <th style="width: 15%;">Categoría</th>
+                        <th style="width: 15%;">Stock Actual</th>
+                        <th style="width: 15%;">Stock Mín.</th>
+                        <th style="width: 15%;">Estado</th>
+                        <th style="width: 10%;">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Fila 1 -->
+                    <tr data-codigo="PRO-0001" data-min="50" data-unidad="Kg">
+                        <td>
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="icon-box"><i class="fa-solid fa-seedling"></i></div>
+                                <div>
+                                    <span class="producto-nombre">Semilla de Maíz Híbrido</span>
+                                    <span class="producto-codigo">Cod: PRO-0001</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>Semillas</td>
+                        <td class="fw-bold"><span class="stock-valor">120</span> <small class="text-muted fw-normal">Kg</small></td>
+                        <td class="text-muted">50 Kg</td>
+                        <td>
+                            <span class="estado-texto verde"><i class="fa-solid fa-check-circle"></i> Estable</span>
+                        </td>
+                        <td>
+                            <a href="#" class="btn-config"><i class="fa-solid fa-gear"></i> Configurar</a>
+                        </td>
+                    </tr>
 
-        <!-- Cantidad -->
-        <label class="etiqueta">Cantidad a ajustar *</label>
-        <div class="caja-cantidad">
-          <button type="button" class="btn-cantidad" id="btnRestar">-</button>
-          <input type="number" id="cantidad" class="input-cantidad" value="0" min="0">
-          <button type="button" class="btn-cantidad" id="btnSumar">+</button>
+                    <!-- Fila 2 -->
+                    <tr data-codigo="PRO-0103" data-min="40" data-unidad="L">
+                        <td>
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="icon-box"><i class="fa-solid fa-droplet"></i></div>
+                                <div>
+                                    <span class="producto-nombre">Fertilizante Líquido</span>
+                                    <span class="producto-codigo">Cod: PRO-0103</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>Fertilizantes</td>
+                        <td class="fw-bold"><span class="stock-valor">25</span> <small class="text-muted fw-normal">L</small></td>
+                        <td class="text-muted">40 L</td>
+                        <td>
+                            <span class="estado-texto rojo"><i class="fa-solid fa-triangle-exclamation"></i> Bajo stock</span>
+                        </td>
+                        <td>
+                            <a href="#" class="btn-config"><i class="fa-solid fa-gear"></i> Configurar</a>
+                        </td>
+                    </tr>
+
+                    <!-- Fila 3 -->
+                    <tr data-codigo="PRO-0052" data-min="5" data-unidad="Unidades">
+                        <td>
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="icon-box"><i class="fa-solid fa-spray-can"></i></div>
+                                <div>
+                                    <span class="producto-nombre">Pulverizadora Manual</span>
+                                    <span class="producto-codigo">Cod: PRO-0052</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>Herramientas</td>
+                        <td class="fw-bold"><span class="stock-valor">8</span> <small class="text-muted fw-normal">Unidades</small></td>
+                        <td class="text-muted">5 Unidades</td>
+                        <td>
+                            <span class="estado-texto naranja"><i class="fa-solid fa-circle-exclamation"></i> Próximo a agotar</span>
+                        </td>
+                        <td>
+                            <a href="#" class="btn-config"><i class="fa-solid fa-gear"></i> Configurar</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <small class="ayuda">Usa los botones para sumar (entrada) o restar (salida) unidades.</small>
-      </div>
 
-      <div class="modal-footer border-0">
-        <button type="button" class="btn-cancelar" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn-guardar" id="btnGuardar"><i class="fa-solid fa-floppy-disk"></i> Guardar ajuste</button>
-      </div>
+        <!-- Modal Configurar Stock -->
+        <div class="modal fade" id="modalStock" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content modal-stock">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title"><strong>Configurar <span class="texto-dorado">Stock</span></strong></h5>
+                        <button type="button" class="btn-cerrar" data-bs-dismiss="modal" aria-label="Cerrar">&times;</button>
+                    </div>
 
-    </div>
-  </div>
-</div>
+                    <div class="modal-body">
+                        <div class="info-producto">
+                            <div>
+                                <span class="producto-nombre" id="modalNombre"></span>
+                                <small id="modalDetalle"></small>
+                            </div>
+                            <span class="stock-grande" id="modalStockActual">0</span>
+                        </div>
 
+                        <label for="tipoAjuste" class="etiqueta">Tipo de ajuste *</label>
+                        <select class="form-select campo" id="tipoAjuste">
+                            <option value="" selected disabled>Selecciona el tipo de ajuste</option>
+                            <option value="entrada">Entrada</option>
+                            <option value="salida">Salida</option>
+                            <option value="correccion">Corrección</option>
+                        </select>
 
+                        <label for="cantidad" class="etiqueta">Cantidad a ajustar *</label>
+                        <div class="caja-cantidad">
+                            <button type="button" class="btn-cantidad" id="btnRestar" aria-label="Disminuir cantidad">-</button>
+                            <input type="number" id="cantidad" class="input-cantidad" value="0" min="0" aria-label="Cantidad a ajustar">
+                            <button type="button" class="btn-cantidad" id="btnSumar" aria-label="Aumentar cantidad">+</button>
+                        </div>
+                        <small class="ayuda">Usa los botones para sumar (entrada) o restar (salida) unidades.</small>
+                        <p id="errorModalStock" class="text-danger small mt-2 mb-0" hidden></p>
+                    </div>
 
-</main>
+                    <div class="modal-footer border-0">
+                        <button type="button" class="btn-cancelar" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn-guardar" id="btnGuardar"><i class="fa-solid fa-floppy-disk"></i> Guardar ajuste</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 
-<!-- Pie de página -->
-<footer class="footer-agrogest text-center">
-    <p>Desarrollado como proyecto de formación del SENA - Servicio Nacional de Aprendizaje, programa Tecnólogo en Análisis y Desarrollo de Software (ADSO).</p>
-    <p>&copy; 2026 AgroGest Distribuciones. Todos los derechos reservados.</p>
-    <p>Proyecto desarrollado con fines académicos.</p>
-</footer>
+    <!-- Pie de página -->
+    <footer class="footer-agrogest text-center">
+        <p>Desarrollado como proyecto de formación del SENA - Servicio Nacional de Aprendizaje, programa Tecnólogo en Análisis y Desarrollo de Software (ADSO).</p>
+        <p>&copy; 2026 AgroGest Distribuciones. Todos los derechos reservados.</p>
+        <p>Proyecto desarrollado con fines académicos.</p>
+    </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="js/inventario-modal-configurar-stock.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/inventario-modal-configurar-stock.js"></script>
 </body>
 </html>

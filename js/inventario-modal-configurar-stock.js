@@ -1,102 +1,175 @@
+/* =========================================================
+   AgroGest Distribuciones - Inventario (inventario-modal-configurar-stock.js)
+   ========================================================= */
 
-// Esperamos a que toda la página (incluido el modal) esté cargada
 document.addEventListener("DOMContentLoaded", function () {
+    "use strict";
 
-    // Variables que guardan lo que se está editando
-    var filaActual = null;   // la fila (tr) del producto que se está configurando
-    var stockActual = 0;     // stock actual del producto
+    let filaActual = null;
+    let stockActual = 0;
 
-    // Elementos del modal
-    var elementoModal = document.getElementById("modalStock");
-    var inputCantidad = document.getElementById("cantidad"); // ahora es un input
-    var tipoAjuste = document.getElementById("tipoAjuste");
+    const elementoModal = document.getElementById("modalStock");
+    const inputCantidad = document.getElementById("cantidad");
+    const tipoAjuste = document.getElementById("tipoAjuste");
+    const errorModal = document.getElementById("errorModalStock");
+    const btnExportar = document.getElementById("btnExportarInventario");
 
-    // 1. Al presionar "Configurar", llenamos el modal con los datos de esa fila
-    var botones = document.querySelectorAll(".btn-config");
+    function updateRowStatus(fila, nuevoStock) {
+        const minStock = parseInt(fila.dataset.min || "0", 10);
+        const estadoEl = fila.querySelector(".estado-texto");
+        if (!estadoEl) return;
 
-    botones.forEach(function (boton) {
+        estadoEl.classList.remove("verde", "rojo", "naranja");
+
+        if (nuevoStock < minStock) {
+            estadoEl.classList.add("rojo");
+            estadoEl.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> Bajo stock';
+        } else if (nuevoStock <= Math.round(minStock * 1.6)) {
+            estadoEl.classList.add("naranja");
+            estadoEl.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> Próximo a agotar';
+        } else {
+            estadoEl.classList.add("verde");
+            estadoEl.innerHTML = '<i class="fa-solid fa-check-circle"></i> Estable';
+        }
+    }
+
+    function applyStoredStock() {
+        const stored = window.AgroGest.getStore("agrogest_inventario_stock", {});
+        document.querySelectorAll("#tablaInventario tbody tr").forEach(function (fila) {
+            const code = fila.dataset.codigo;
+            if (code && stored[code] !== undefined) {
+                const stockSpan = fila.querySelector(".stock-valor");
+                if (stockSpan) {
+                    stockSpan.textContent = stored[code];
+                }
+                updateRowStatus(fila, Number(stored[code]));
+            }
+        });
+    }
+
+    applyStoredStock();
+
+    document.querySelectorAll(".btn-config").forEach(function (boton) {
         boton.addEventListener("click", function (evento) {
-            evento.preventDefault(); // evita que el href="#" suba la página
+            evento.preventDefault();
 
-            // closest("tr") busca la fila que contiene el botón presionado
             filaActual = boton.closest("tr");
+            const nombre = filaActual.querySelector(".producto-nombre").textContent;
+            const codigo = filaActual.dataset.codigo || "";
+            const unidad = filaActual.dataset.unidad || "";
+            const stockSpan = filaActual.querySelector(".stock-valor");
+            stockActual = parseInt(stockSpan.textContent, 10) || 0;
 
-            // Leemos los datos que ya están escritos en la fila
-            var nombre = filaActual.querySelector(".producto-nombre").textContent;
-            var codigo = filaActual.querySelector(".producto-codigo").textContent.replace("Cod: ", "");
-            var celdaStock = filaActual.cells[2];                       // 3ra columna: Stock Actual
-            var unidad = celdaStock.querySelector("small").textContent; // Kg, L o Unidades
-
-            // firstChild es el texto que va antes del <small> (por ejemplo "120 ")
-            stockActual = parseInt(celdaStock.firstChild.textContent);
-
-            // Mostramos los datos en el modal
             document.getElementById("modalNombre").textContent = nombre;
             document.getElementById("modalDetalle").textContent = "Código: " + codigo + " | Unidad: " + unidad;
             document.getElementById("modalStockActual").textContent = stockActual;
 
-            // Reiniciamos los campos
             inputCantidad.value = 0;
             tipoAjuste.selectedIndex = 0;
+            if (errorModal) errorModal.hidden = true;
 
-            // Abrimos el modal con Bootstrap
             bootstrap.Modal.getOrCreateInstance(elementoModal).show();
         });
     });
 
-    // 2. Botones - y + (cambian el número que hay escrito en el input)
-    document.getElementById("btnSumar").addEventListener("click", function () {
-        // Number(...) convierte el texto a número; si está vacío usamos 0
-        inputCantidad.value = (Number(inputCantidad.value) || 0) + 1;
-    });
+    const btnSumar = document.getElementById("btnSumar");
+    const btnRestar = document.getElementById("btnRestar");
+    const btnGuardar = document.getElementById("btnGuardar");
 
-    document.getElementById("btnRestar").addEventListener("click", function () {
-        var nuevo = (Number(inputCantidad.value) || 0) - 1;
-        if (nuevo < 0) {
-            nuevo = 0; // no dejamos números negativos
-        }
-        inputCantidad.value = nuevo;
-    });
+    if (btnSumar) {
+        btnSumar.addEventListener("click", function () {
+            inputCantidad.value = (Number(inputCantidad.value) || 0) + 1;
+        });
+    }
 
-    // 3. Guardar el ajuste
-    document.getElementById("btnGuardar").addEventListener("click", function () {
-        // Leemos el número que escribió el usuario
-        var cantidad = Number(inputCantidad.value);
+    if (btnRestar) {
+        btnRestar.addEventListener("click", function () {
+            const nuevo = Math.max(0, (Number(inputCantidad.value) || 0) - 1);
+            inputCantidad.value = nuevo;
+        });
+    }
 
-        // Validaciones
-        if (tipoAjuste.value === "") {
-            alert("Selecciona el tipo de ajuste");
-            return;
-        }
-        if (inputCantidad.value === "" || cantidad < 0) {
-            alert("Escribe una cantidad válida");
-            return;
-        }
-        if (cantidad === 0 && tipoAjuste.value !== "correccion") {
-            alert("La cantidad no puede ser 0");
-            return;
-        }
+    if (btnGuardar) {
+        btnGuardar.addEventListener("click", function () {
+            const cantidad = Number(inputCantidad.value);
 
-        // Calculamos el nuevo stock según el tipo de ajuste
-        var nuevoStock = stockActual;
-        if (tipoAjuste.value ==="entrada") {
-            nuevoStock = stockActual + cantidad;   // entrada: suma
-        } else if (tipoAjuste.value === "salida") {
-            nuevoStock = stockActual - cantidad;   // salida: resta
-        } else {
-            nuevoStock = cantidad;                 // corrección: el stock pasa a ser ese número
-        }
+            function fail(msg) {
+                if (errorModal) {
+                    errorModal.textContent = msg;
+                    errorModal.hidden = false;
+                } else {
+                    window.AgroGest.showToast(msg, "error");
+                }
+            }
 
-        if (nuevoStock < 0) {
-            alert("El stock no puede quedar negativo");
-            return;
-        }
+            if (tipoAjuste.value === "") {
+                return fail("Selecciona el tipo de ajuste.");
+            }
+            if (inputCantidad.value === "" || Number.isNaN(cantidad) || cantidad < 0) {
+                return fail("Escribe una cantidad válida.");
+            }
+            if (cantidad === 0 && tipoAjuste.value !== "correccion") {
+                return fail("La cantidad debe ser mayor a 0.");
+            }
 
-        // Cambiamos solo el número en la tabla, sin borrar la unidad (<small>)
-        filaActual.cells[2].firstChild.textContent = nuevoStock + " ";
+            let nuevoStock = stockActual;
+            if (tipoAjuste.value === "entrada") {
+                nuevoStock = stockActual + cantidad;
+            } else if (tipoAjuste.value === "salida") {
+                nuevoStock = stockActual - cantidad;
+            } else {
+                nuevoStock = cantidad;
+            }
 
-        // Cerramos el modal
-        bootstrap.Modal.getInstance(elementoModal).hide();
-    });
+            if (nuevoStock < 0) {
+                return fail("El stock no puede quedar negativo.");
+            }
 
+            const stockSpan = filaActual.querySelector(".stock-valor");
+            if (stockSpan) stockSpan.textContent = nuevoStock;
+            updateRowStatus(filaActual, nuevoStock);
+
+            const code = filaActual.dataset.codigo;
+            if (code) {
+                const stored = window.AgroGest.getStore("agrogest_inventario_stock", {});
+                stored[code] = nuevoStock;
+                window.AgroGest.setStore("agrogest_inventario_stock", stored);
+            }
+
+            bootstrap.Modal.getInstance(elementoModal).hide();
+            window.AgroGest.showToast("Stock actualizado correctamente.", "success");
+        });
+    }
+
+    if (btnExportar) {
+        btnExportar.addEventListener("click", function () {
+            const rows = [["Codigo", "Producto", "Categoria", "Stock Actual", "Unidad", "Stock Minimo", "Estado"]];
+            document.querySelectorAll("#tablaInventario tbody tr").forEach(function (tr) {
+                const codigo = tr.dataset.codigo || "";
+                const nombre = tr.querySelector(".producto-nombre").textContent.trim();
+                const categoria = tr.cells[1].textContent.trim();
+                const stock = tr.querySelector(".stock-valor").textContent.trim();
+                const unidad = tr.dataset.unidad || "";
+                const min = tr.dataset.min || "";
+                const estado = tr.querySelector(".estado-texto").textContent.trim();
+                rows.push([codigo, nombre, categoria, stock, unidad, min, estado]);
+            });
+
+            const csv = rows.map(function (r) {
+                return r.map(function (c) { return '"' + String(c).replace(/"/g, '""') + '"'; }).join(",");
+            }).join("\n");
+
+            const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement("a");
+            link.href = url;
+            link.download = "inventario-agrogest.csv";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+
+            window.AgroGest.showToast("Reporte de inventario descargado.", "success");
+        });
+    }
 });

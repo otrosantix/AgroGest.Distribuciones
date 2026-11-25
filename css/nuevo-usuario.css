@@ -1,25 +1,4 @@
-/* nuevo-usuario.css - se carga DESPUÉS de index-portal.css */
-
-.usuario-main {
-    background-color: #f3f3f5;
-    padding-top: 30px;
-    padding-bottom: 60px;
-}
-
-.migas {
-    font-size: 13px;
-    color: var(--gris-texto);
-    margin-bottom: 14px;
-}
-
-.migas a {
-    color: var(--gris-texto);
-    text-decoration: none;
-}
-
-.migas a:hover {
-    color: var(--dorado-oscuro);
-}
+/* nuevo-usuario.css - Se carga después de css/common.css */
 
 .usuario-titulo {
     font-size: 30px;
@@ -34,9 +13,8 @@
     margin: 2px 0 0 0;
 }
 
-/* ---------- Botones de arriba ---------- */
 .btn-cancelar-usuario {
-    background-color: #fff;
+    background-color: var(--blanco);
     border: 1px solid #d5d5d5;
     border-radius: 8px;
     color: #333;
@@ -67,9 +45,8 @@
     color: var(--negro);
 }
 
-/* ---------- Secciones del formulario ---------- */
 .seccion-form {
-    background-color: #fff;
+    background-color: var(--blanco);
     border: 1px solid #ececec;
     border-radius: 12px;
     padding: 22px 24px;
@@ -101,7 +78,6 @@
     color: var(--dorado-oscuro);
 }
 
-/* Campos con borde dorado */
 .campo {
     border: 1px solid var(--dorado);
     border-radius: 8px;
@@ -114,7 +90,6 @@
     box-shadow: 0 0 0 0.2rem rgba(216, 149, 0, 0.25);
 }
 
-/* Al validar, dejamos el borde dorado cuando está bien */
 .was-validated .campo:valid {
     border-color: var(--dorado);
 }

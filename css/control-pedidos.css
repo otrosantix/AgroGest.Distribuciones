@@ -1,170 +1,88 @@
+/* control-pedidos.css - Se carga después de css/common.css */
 
-body {
-    font-family: 'Inter', sans-serif;
-    background-color: #f8f8f8;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-main {
-    background-color: #f8f8f8;
-}
-
-/* --- HEADER --- */
-.navbar {
-    background-color: #1a1a1a;
-    padding: 12px 0;
-}
-
-.navbar-brand {
-    color: white;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.logo-circle {
-    background-color: #E6B325;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #1a1a1a;
-    font-size: 1.2rem;
-    overflow: hidden; /* Esto hace que la imagen no se salga del circulo */
-}
-.logo-circle img {
-            width: 100%;      /* La imagen ocupa todo el ancho del circulo */
-            height: 100%;     /* La imagen ocupa todo el alto del circulo */
-            object-fit: cover;/* La imagen se recorta para no deformarse */
-        }
-.texto-dorado { color: #E6B325; }
-.texto-blanco{color: white;}
-
-.brand-text span {
-    display: block;
-    font-size: 0.6rem;
-    letter-spacing: 1.5px;
-    margin-top: -3px;
-    color: #E6B325;
-}
-
-
-.nav-link {
-    color: #a0a0a0 !important;
-    font-size: 0.85rem;
-    font-weight: 500;
-    margin: 0 12px;
-    padding-bottom: 4px;
-}
-
-.nav-link.active {
-    color: #E6B325 !important;
-    border-bottom: 2px solid #E6B325;
-}
-
-.btn-admin {
-    background-color: #2a2a2a;
-    border: 1px solid #E6B325;
-    color: #E6B325;
-    border-radius: 20px;
-    padding: 6px 16px;
-    font-size: 0.8rem;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
 .tarjeta-busqueda {
-    background-color: rgb(255, 255, 255);
-    padding: 20px;
-    
+    background-color: var(--blanco);
+    border: 1px solid var(--borde-suave);
+    border-radius: 14px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
 }
-.miga-pan {
-    color: #adadad;
-    font-size: 15px;
-    font-family: Arial, Helvetica, sans-serif;
 
+.tarjeta-busqueda h1 {
+    color: #111827;
+    font-size: 28px;
+    font-weight: 800;
+    margin: 0 0 4px 0;
 }
-strong{
-    color: #E6B325;
-}
-h1 {
-    color: #020202;
-    font-size: 65px;
-    padding: 10px;
-}
+
 .texto-peq {
-    color: #666464;
-    font-size: 15px;
-    
+    color: var(--gris-texto);
+    font-size: 14px;
 }
+
 .barra-busqueda {
-    padding: 5px;
-   border-radius: 5px;
-   border-color: rgb(250, 248, 248);
-   width: 300px;
-    
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #d9dde3;
+    width: 260px;
+    font-size: 13px;
 }
 
 .barra-busqueda:focus {
-    border-radius: #E6B325;
-    color: #575654;
-    background-color: #f0eeee;
-    border-color: none;
+    border-color: var(--dorado);
     outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(216, 149, 0, 0.2);
 }
 
 .btn-nuevos-insumos {
     text-decoration: none;
-    color: white;
-    background-color: #E6B325;
-    padding: 8px;
-    border-radius: 6px;
-    width: 180px;
-    text-align: center;
+    color: var(--blanco);
+    background-color: var(--dorado);
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    border: 1px solid var(--dorado);
+    white-space: nowrap;
+    transition: background-color 0.2s ease;
 }
-.tarjetas-datos{
-    display: flex;
-    align-items: center;
-    width: 250px;
-    background-color: #ffffff;
-    color: #E6B325;
-    padding: 10px;
-    border: 1px solid black;
+
+.btn-nuevos-insumos:hover {
+    background-color: var(--dorado-oscuro);
+    border-color: var(--dorado-oscuro);
+    color: var(--blanco);
 }
 
 /* Fila de tarjetas */
 .contenedor-tarjetas {
-    margin-top: 15px;
-    display: flex;
-    gap: 20px;
-    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 20px;
 }
 
 .tarjetas-datos {
-    flex: 1;              
     display: flex;
     align-items: center;
-    background-color: #ffffff;
-    color: #000000;
+    background-color: var(--blanco);
+    color: #111827;
     padding: 16px;
-    gap:20px;
-    border: 1px solid rgb(250, 250, 250);
-    border-radius: 10px;
+    gap: 16px;
+    border: 1px solid var(--borde-suave);
+    border-radius: 12px;
 }
 
 .logos {
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #E6B325;
-    background-color: #FEF9C3;
-    border-radius: 7px;
+    color: var(--dorado-oscuro);
+    background-color: var(--dorado-suave);
+    border-radius: 10px;
+    font-size: 1.15rem;
 }
 
 .textos-tarjeta {
@@ -173,92 +91,67 @@ h1 {
 }
 
 .textos-tarjeta p {
-    margin: 0; /* quita el espacio extra de los párrafos */
+    margin: 0;
 }
 
 .estado {
     color: #505050;
-    font-size: 13px; 
-    white-space: nowrap; /* no salta de línea */
+    font-size: 13px;
+    white-space: nowrap;
 }
 
 .numeros {
-    color: #020202;
-    font-size: 28px;
+    color: #111827;
+    font-size: 26px;
     font-weight: 700;
-    line-height: 1;
+    line-height: 1.15;
 }
+
 .sub-estado {
-    white-space: nowrap; /* no salta de línea */
-    font-size: 10px;
-    color: #E6B325;
+    white-space: nowrap;
+    font-size: 11px;
+    color: var(--gris-texto);
 }
 
-
-/* ==========================================================
-   LO NUEVO (todo lo de abajo lo agregué yo; lo de arriba es tuyo)
-   ========================================================== */
-
-/* --- Ajustes para que se parezca a la captura --- */
-
-/* El body es una columna de alto completo: con esto el main crece
-   y empuja el footer hasta abajo aunque haya pocos pedidos */
-main {
-    flex: 1;
-}
-
-/* Tu h1 de 65px se ve enorme frente a la captura, lo bajo aquí */
-.tarjeta-busqueda h1 {
-    font-size: 28px;
-    font-weight: 700;
-    padding: 10px 0;
-    margin: 0;
-}
-
-/* En la captura el texto de la miga de pan es gris oscuro, no dorado */
-.miga-pan strong {
-    color: #333;
-}
-
-/* Subtítulo de las tarjetas en gris, como en la captura */
-.sub-estado {
-    color: #9ca3af;
-}
-
-/* --- Filtro "Todos" --- */
+/* Filtros */
 .filtros {
-    padding: 0 20px 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-bottom: 16px;
 }
 
 .chip-filtro {
-    background-color: #E6B325;
-    color: white;
-    border: none;
+    background-color: var(--blanco);
+    color: #4b5563;
+    border: 1px solid #d9dde3;
     border-radius: 20px;
-    padding: 6px 18px;
+    padding: 6px 16px;
     font-size: 13px;
     font-weight: 600;
     cursor: pointer;
+    transition: all 0.2s ease;
 }
 
-/* --- Tabla --- */
-.contenedor-tabla {
-    padding: 0 20px 40px;
+.chip-filtro:hover,
+.chip-filtro.active {
+    background-color: var(--dorado);
+    color: var(--blanco);
+    border-color: var(--dorado);
 }
 
-/* Caja blanca con bordes redondeados. El overflow-x hace que en el celular
-   la tabla se pueda deslizar de lado en vez de aplastarse */
+/* Tabla */
 .tabla-envoltorio {
-    background-color: #fff;
-    border: 1px solid #e5e7eb;
-    border-radius: 10px;
+    background-color: var(--blanco);
+    border: 1px solid var(--borde-suave);
+    border-radius: 12px;
     overflow-x: auto;
 }
 
 .tabla-pedidos {
     width: 100%;
-    min-width: 820px;            /* debajo de este ancho aparece el scroll horizontal */
-    border-collapse: collapse;   /* une los bordes de las celdas en una sola línea */
+    min-width: 820px;
+    border-collapse: collapse;
 }
 
 .tabla-pedidos th {
@@ -281,11 +174,10 @@ main {
     text-align: right !important;
 }
 
-/* Los span van uno encima del otro (nombre arriba, NIT abajo) */
 .dato-fuerte {
     display: block;
     font-weight: 600;
-    color: #111;
+    color: #111827;
 }
 
 .dato-suave {
@@ -295,23 +187,22 @@ main {
 }
 
 .num-pedido {
-    color: #E6B325;
+    color: var(--dorado-oscuro);
     font-weight: 700;
 }
 
 .total {
     font-weight: 700;
-    color: #111;
+    color: #111827;
     white-space: nowrap;
 }
 
 .ver-detalle {
     font-size: 11px;
-    color: #555;
+    color: var(--dorado-oscuro);
     text-decoration: underline;
 }
 
-/* --- Etiquetas de estado (cada una con su color) --- */
 .estado-pedido {
     display: inline-flex;
     align-items: center;
@@ -323,98 +214,53 @@ main {
     white-space: nowrap;
 }
 
-.estado-pedido.cotizado   { background-color: #dbeafe; color: #1d4ed8; }
+.estado-pedido.cotizado    { background-color: #dbeafe; color: #1d4ed8; }
 .estado-pedido.en-transito { background-color: #fef3c7; color: #a16207; }
-.estado-pedido.recibido   { background-color: #dcfce7; color: #15803d; }
-.estado-pedido.cancelado  { background-color: #f3f4f6; color: #4b5563; }
+.estado-pedido.recibido    { background-color: #dcfce7; color: #15803d; }
+.estado-pedido.cancelado   { background-color: #f3f4f6; color: #4b5563; }
 
-/* --- Botón Ver --- */
 .btn-ver {
-    display: inline-block;
-    border: 1px solid #E6B325;
-    color: #E6B325;
-    background-color: #fff;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    border: 1px solid var(--dorado);
+    color: var(--dorado-oscuro);
+    background-color: var(--blanco);
     border-radius: 6px;
     padding: 5px 14px;
     font-size: 12px;
+    font-weight: 600;
     text-decoration: none;
 }
 
 .btn-ver:hover {
-    background-color: #E6B325;
-    color: #fff;
+    background-color: var(--dorado);
+    color: var(--blanco);
 }
 
 .sin-resultados {
     text-align: center;
     color: #6b7280;
-    padding: 16px;
+    padding: 20px;
     margin: 0;
 }
 
-/* --- Pie de página --- */
-.pie-pagina {
-    background-color: #c98a07;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
-    font-size: 12px;
-}
-
-.pie-pagina p {
-    margin: 2px 0;
-}
-
-/* ==========================================================
-   RESPONSIVO
-   ========================================================== */
-
-/* Tablet: las 4 tarjetas pasan a 2 por fila */
-@media (max-width: 992px) {
-    /* flex-wrap deja que las tarjetas "bajen" a otra fila cuando no caben */
+@media (max-width: 991.98px) {
     .contenedor-tarjetas {
-        flex-wrap: wrap;
-    }
-
-    /* 40% de base + flex-grow: así caben 2 por fila.
-       El width: auto anula el 250px que traías en la primera regla */
-    .tarjetas-datos {
-        flex: 1 1 40%;
-        width: auto;
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
-/* Celular */
-@media (max-width: 576px) {
+@media (max-width: 575.98px) {
     .tarjeta-busqueda h1 {
         font-size: 22px;
     }
 
-    /* El buscador y el botón ocupan todo el ancho */
-    .tarjeta-busqueda form {
-        width: 100%;
+    .contenedor-tarjetas {
+        grid-template-columns: 1fr;
     }
 
     .barra-busqueda {
-        flex: 1;          /* el input se estira y deja espacio al botón */
-        width: auto;
-        min-width: 0;     /* sin esto un input flex no se deja encoger */
-    }
-
-    .btn-nuevos-insumos {
-        width: auto;
-        white-space: nowrap;
-    }
-
-    /* Una tarjeta por fila */
-    .tarjetas-datos {
-        flex: 1 1 100%;
-    }
-
-    .contenedor-tarjetas,
-    .filtros,
-    .contenedor-tabla {
-        padding-left: 12px;
-        padding-right: 12px;
+        width: 100%;
     }
 }

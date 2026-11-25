@@ -1,96 +1,63 @@
-  /* Reseteo basico */
-body {
-    font-family: 'Inter', sans-serif;
-    background-color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
+/* Inventario-admin.css - Se carga después de css/common.css */
 
-.texto-dorado { color: #E6B325; }
-.texto-blanco { color: white; }
-
-/* --- CONTENIDO --- */
-.main-content {
-    flex: 1;
-    padding: 40px 0;
-}
-
-.migas {
-    font-size: 0.85rem;
-    margin-bottom: 20px;
-}
-
-.migas a {
-    color: #8c9ba5;
-    text-decoration: none;
-}
-
-.migas span {
-    color: #111;
-    font-weight: 500;
-}
-
-h1 {
-    font-weight: 700;
-    font-size: 2.2rem;
-    color: #111;
-    letter-spacing: -0.5px;
-}
-
-.subtitulo {
-    color: #6c757d;
-    font-size: 0.95rem;
-}
-
-/* Botones de accion (sin fondo) */
 .btn-accion {
-    background: none;
-    border: 1px solid #b3b0b0;
+    background: var(--blanco);
+    border: 1px solid #d5d5d5;
     border-radius: 10px;
-    color: #E6B325;
+    color: var(--dorado-oscuro);
     font-weight: 600;
     font-size: 0.9rem;
-    margin-left: 15px;
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 5px;
-}
-.btn-accion2 {
-    background: #E6B325;
-    border: 1px solid #b3b0b0;
-    border-radius: 10px;
-    color: #ffffff;
-    font-weight: 600;
-    font-size: 0.9rem;
-    margin-left: 15px;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 5px;
-}
-.fa-download{
-    color: #111
+    padding: 8px 14px;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
-.btn-accion:hover { color: #E6B325; }
+.btn-accion:hover {
+    border-color: var(--dorado);
+    background-color: var(--dorado-suave);
+    color: var(--dorado-oscuro);
+}
+
+.btn-accion2 {
+    background: var(--dorado);
+    border: 1px solid var(--dorado);
+    border-radius: 10px;
+    color: var(--blanco);
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.btn-accion2:hover {
+    background: var(--dorado-oscuro);
+    border-color: var(--dorado-oscuro);
+    color: var(--blanco);
+}
 
 /* --- TABLA --- */
 .tabla-container {
-    margin-top: 30px;
+    margin-top: 24px;
+    background-color: var(--blanco);
+    border: 1px solid var(--borde-suave);
+    border-radius: 12px;
+    padding: 8px 16px;
 }
 
 .table {
     margin-bottom: 0;
 }
 
-/* Quitar bordes negros feos y poner los grises sutiles */
 .table thead th {
-    background-color: #ffffff;
-    border-bottom: 1px solid #E6B325;
-    border-top: 1px;
-    color: #888;
+    background-color: var(--blanco);
+    border-bottom: 1px solid var(--dorado);
+    color: var(--gris-texto);
     font-weight: 600;
     font-size: 0.75rem;
     text-transform: uppercase;
@@ -100,14 +67,16 @@ h1 {
 
 .table tbody td {
     vertical-align: middle;
-    padding: 20px 10px;
-    border-bottom: 1px solid #eaeaea;
-    border-top: 1px;
+    padding: 18px 10px;
+    border-bottom: 1px solid var(--borde-suave);
     font-size: 0.9rem;
     color: #444;
 }
 
-/* El cuadrito gris de los iconos */
+.table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
 .icon-box {
     width: 40px;
     height: 40px;
@@ -116,85 +85,67 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #aaa;
+    color: #111;
     font-size: 1.1rem;
-}
-.fa-seedling{
-    color: #111;
-}
-.fa-droplet{
-    color: #111;
-}
-.fa-spray-can{
-    color: #111;
+    flex-shrink: 0;
 }
 
 .producto-nombre {
     font-weight: 700;
     display: block;
     font-size: 0.95rem;
-    color: #E6B325;
+    color: var(--dorado-oscuro);
 }
 
 .producto-codigo {
     font-size: 0.8rem;
-    color: #999;
+    color: var(--gris-texto);
 }
 
-/* ESTADOS (Solo texto con color, sin fondo) */
 .estado-texto {
-    
     font-weight: 600;
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     display: inline-flex;
     align-items: center;
     gap: 6px;
+    border-radius: 20px;
+    padding: 5px 12px;
+    white-space: nowrap;
 }
 
-.verde { 
+.verde {
     background-color: #DCFCE7;
-    color: #15803D; 
-    border-radius: 20px;   
-    padding: 6px;
+    color: #15803D;
 }
 
-.rojo { 
+.rojo {
     background-color: #FEE2E2;
     color: #B91C1C;
-    border-radius: 20px;   
-    padding: 6px; 
- }
-.naranja { 
-    background-color: #FEF3C7;
-    color: #B45309; 
-    border-radius: 20px;  
-    padding: 6px;
 }
 
-/* Boton configurar */
+.naranja {
+    background-color: #FEF3C7;
+    color: #B45309;
+}
+
 .btn-config {
-    padding: 4px;
-    border: 1px solid #d8d4d4;
-    border-radius: 13px;
-    color: #E6B325;
+    padding: 6px 12px;
+    border: 1px solid var(--dorado);
+    border-radius: 8px;
+    color: var(--dorado-oscuro);
     font-weight: 600;
     font-size: 0.85rem;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
     gap: 6px;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.btn-config:hover { color: #9c9a9a; }
-.fa-gear{
-    color: #575757;
+.btn-config:hover {
+    background-color: var(--dorado);
+    color: var(--blanco);
 }
-
-
-
-
-
-/*SEGUNDO APARTADO*/
 
 /* --- MODAL CONFIGURAR STOCK --- */
 .modal-stock {
@@ -210,7 +161,6 @@ h1 {
     height: 30px;
 }
 
-/* Tarjeta del producto */
 .info-producto {
     background-color: #faf8f3;
     border-radius: 10px;
@@ -221,10 +171,12 @@ h1 {
     margin-bottom: 20px;
 }
 
-.info-producto small { color: #666; }
+.info-producto small {
+    color: #666;
+}
 
 .stock-grande {
-    color: #E6B325;
+    color: var(--dorado);
     font-size: 2rem;
     font-weight: 700;
 }
@@ -237,11 +189,10 @@ h1 {
 }
 
 .campo {
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     font-size: 0.85rem;
 }
 
-/* Caja con los botones - y + */
 .caja-cantidad {
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -251,9 +202,9 @@ h1 {
     align-items: center;
     font-size: 1.3rem;
     font-weight: 700;
-    color: #E6B325;
+    color: var(--dorado);
 }
-/* Campo para escribir la cantidad */
+
 .input-cantidad {
     border: none;
     outline: none;
@@ -261,26 +212,27 @@ h1 {
     width: 100%;
     font-size: 1.3rem;
     font-weight: 700;
-    color: #E6B325;
+    color: var(--dorado);
 }
 
 .btn-cantidad {
     background: #e7e7e5;
-    color: #E6B325;
+    color: var(--dorado-oscuro);
     border: none;
     border-radius: 50%;
     width: 28px;
     height: 28px;
     font-weight: 700;
+    flex-shrink: 0;
 }
 
 .ayuda {
-    color: hsl(0, 0%, 0%);
+    color: var(--gris-texto);
     font-size: 0.75rem;
 }
 
 .btn-cancelar {
-    background: white;
+    background: var(--blanco);
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 8px 20px;
@@ -288,10 +240,14 @@ h1 {
 }
 
 .btn-guardar {
-    background: #E6B325;
-    color: white;
+    background: var(--dorado);
+    color: var(--blanco);
     border: none;
     border-radius: 8px;
     padding: 8px 20px;
     font-weight: 600;
+}
+
+.btn-guardar:hover {
+    background: var(--dorado-oscuro);
 }

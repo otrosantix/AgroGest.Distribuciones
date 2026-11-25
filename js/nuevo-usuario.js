@@ -1,104 +1,122 @@
-// nuevo-usuario.js - Crear o editar un usuario
-// Necesita que usuarios.js se cargue antes
+/* =========================================================
+   AgroGest Distribuciones - Crear o editar usuario (nuevo-usuario.js)
+   Necesita que usuarios.js se cargue antes
+   ========================================================= */
 
-var formulario = document.getElementById("formUsuario");
-var campoClave = document.getElementById("clave");
-var campoCorreo = document.getElementById("correo");
+(function () {
+    "use strict";
 
-// Los campos del formulario (el id de cada uno coincide con el nombre del dato)
-var campos = ["tipoDoc", "numDoc", "fechaNac", "nombres", "apellidos", "genero",
-              "celular", "fijo", "direccion", "ciudad", "correo", "rol"];
+    document.addEventListener("DOMContentLoaded", function () {
+        const formulario = document.getElementById("formUsuario");
+        const campoClave = document.getElementById("clave");
+        const campoCorreo = document.getElementById("correo");
+        const toggleClaveBtn = document.getElementById("toggleClaveUsuario");
+        if (!formulario || !campoClave || !campoCorreo) return;
 
-// Si la dirección es nuevo-usuario.html?id=3 estamos EDITANDO al usuario 3
-var parametros = new URLSearchParams(window.location.search);
-var idEditar = parametros.get("id");
-var usuarioEditar = null;
+        const campos = [
+            "tipoDoc", "numDoc", "fechaNac", "nombres", "apellidos", "genero",
+            "celular", "fijo", "direccion", "ciudad", "correo", "rol"
+        ];
 
-// No se puede elegir una fecha de nacimiento futura
-document.getElementById("fechaNac").max = new Date().toISOString().split("T")[0];
+        const parametros = new URLSearchParams(window.location.search);
+        const idEditar = parametros.get("id");
+        const usuarioEditar = idEditar !== null ? buscarUsuario(idEditar) : null;
 
-// Si hay id, llenamos el formulario con los datos de ese usuario
-if (idEditar != null) {
-    usuarioEditar = buscarUsuario(idEditar);
-}
+        document.getElementById("fechaNac").max = new Date().toISOString().split("T")[0];
 
-if (usuarioEditar != null) {
-    // Cambiamos los textos de la página a modo "editar"
-    document.title = "Editar usuario - AgroGest";
-    document.getElementById("tituloAccion").textContent = "Editar";
-    document.getElementById("subtitulo").textContent = "Modifica los datos de este usuario";
-    document.getElementById("migaActual").textContent = "Editar usuario";
-    document.getElementById("btnGuardar").innerHTML = '<i class="bi bi-floppy me-1"></i>Guardar cambios';
-
-    // En edición la contraseña es opcional
-    campoClave.required = false;
-    campoClave.placeholder = "Nueva contraseña (opcional)";
-    document.getElementById("asteriscoClave").hidden = true;
-    document.getElementById("ayudaClave").hidden = false;
-
-    // Ponemos cada dato en su campo
-    for (var i = 0; i < campos.length; i++) {
-        var nombre = campos[i];
-        document.getElementById(nombre).value = usuarioEditar[nombre];
-    }
-}
-
-// Revisa que el correo no lo tenga otro usuario
-function correoRepetido(correo) {
-    var lista = obtenerUsuarios();
-    for (var i = 0; i < lista.length; i++) {
-        var esOtroUsuario = (usuarioEditar == null) || (lista[i].id != usuarioEditar.id);
-        if (esOtroUsuario && lista[i].correo.toLowerCase() == correo.toLowerCase()) {
-            return true;
+        if (toggleClaveBtn) {
+            toggleClaveBtn.addEventListener("click", function () {
+                const isPass = campoClave.type === "password";
+                campoClave.type = isPass ? "text" : "password";
+                const icon = toggleClaveBtn.querySelector("i");
+                if (icon) {
+                    icon.className = isPass ? "bi bi-eye-slash" : "bi bi-eye";
+                }
+            });
         }
-    }
-    return false;
-}
 
-formulario.addEventListener("submit", function (evento) {
-    evento.preventDefault(); // evita que la página se recargue
+        if (usuarioEditar !== null) {
+            document.title = "Editar usuario - AgroGest";
+            document.getElementById("tituloAccion").textContent = "Editar";
+            document.getElementById("subtitulo").textContent = "Modifica los datos de este usuario";
+            document.getElementById("migaActual").textContent = "Editar usuario";
+            document.getElementById("btnGuardar").innerHTML = '<i class="bi bi-floppy me-1"></i>Guardar cambios';
 
-    // Si el correo ya existe lo marcamos como inválido
-    if (correoRepetido(campoCorreo.value.trim())) {
-        campoCorreo.setCustomValidity("Repetido");
-        document.getElementById("errorCorreo").textContent = "Ya existe un usuario con este correo.";
-    } else {
-        campoCorreo.setCustomValidity("");
-        document.getElementById("errorCorreo").textContent = "Escribe un correo válido.";
-    }
+            campoClave.required = false;
+            campoClave.placeholder = "Nueva contraseña (opcional)";
+            document.getElementById("asteriscoClave").hidden = true;
+            document.getElementById("ayudaClave").hidden = false;
 
-    // Si algo está mal, mostramos los avisos y paramos
-    if (!formulario.checkValidity()) {
-        formulario.classList.add("was-validated");
-        return;
-    }
+            campos.forEach(function (nombre) {
+                const input = document.getElementById(nombre);
+                if (input) {
+                    input.value = usuarioEditar[nombre] || "";
+                }
+            });
+        }
 
-    // Armamos el usuario con los datos del formulario
-    var usuario = {};
-    for (var i = 0; i < campos.length; i++) {
-        usuario[campos[i]] = document.getElementById(campos[i]).value.trim();
-    }
+        function correoRepetido(correo) {
+            const lista = obtenerUsuarios();
+            return lista.some(function (u) {
+                const esOtroUsuario = !usuarioEditar || String(u.id) !== String(usuarioEditar.id);
+                return esOtroUsuario && (u.correo || "").toLowerCase() === correo.toLowerCase();
+            });
+        }
 
-    var lista = obtenerUsuarios();
+        formulario.addEventListener("submit", function (evento) {
+            evento.preventDefault();
 
-    if (usuarioEditar != null) {
-        // EDITAR: reemplazamos el usuario que tenía ese id
-        usuario.id = usuarioEditar.id;
-        for (var j = 0; j < lista.length; j++) {
-            if (lista[j].id == usuario.id) {
-                lista[j] = usuario;
+            if (correoRepetido(campoCorreo.value.trim())) {
+                campoCorreo.setCustomValidity("Repetido");
+                document.getElementById("errorCorreo").textContent = "Ya existe un usuario con este correo.";
+            } else {
+                campoCorreo.setCustomValidity("");
+                document.getElementById("errorCorreo").textContent = "Escribe un correo válido.";
             }
-        }
-    } else {
-        // NUEVO: le damos un id único y lo agregamos
-        usuario.id = Date.now();
-        lista.push(usuario);
-    }
 
-    // OJO: la contraseña NO se guarda aquí (en el navegador no es seguro).
-    // Cuando tengas backend, se envía al servidor y allí se guarda cifrada.
-    guardarUsuarios(lista);
+            // En edición, si ingresa una nueva contraseña debe tener mínimo 8 caracteres
+            if (campoClave.value.length > 0 && campoClave.value.length < 8) {
+                campoClave.setCustomValidity("La contraseña debe tener mínimo 8 caracteres.");
+            } else {
+                campoClave.setCustomValidity("");
+            }
 
-    // Volvemos a la lista de cuentas
-    window.location.href = "perfil.html";
-});
+            if (!formulario.checkValidity()) {
+                formulario.classList.add("was-validated");
+                if (window.AgroGest) {
+                    window.AgroGest.showToast("Revisa los campos resaltados del formulario.", "error");
+                }
+                return;
+            }
+
+            const usuario = {};
+            campos.forEach(function (nombre) {
+                usuario[nombre] = document.getElementById(nombre).value.trim();
+            });
+
+            const lista = obtenerUsuarios();
+            if (usuarioEditar !== null) {
+                usuario.id = usuarioEditar.id;
+                usuario.clave = campoClave.value !== "" ? campoClave.value : (usuarioEditar.clave || "agrogest123");
+                const idx = lista.findIndex(function (u) { return String(u.id) === String(usuario.id); });
+                if (idx >= 0) lista[idx] = usuario;
+            } else {
+                usuario.id = Date.now();
+                usuario.clave = campoClave.value;
+                lista.push(usuario);
+            }
+
+            guardarUsuarios(lista);
+
+            // Si se editó el usuario con sesión iniciada, actualiza los datos de sesión
+            const activeId = sessionStorage.getItem("agrogest_usuario_id");
+            if (activeId && String(activeId) === String(usuario.id)) {
+                sessionStorage.setItem("agrogest_usuario_activo", usuario.correo);
+                sessionStorage.setItem("agrogest_usuario_nombre", (usuario.nombres + " " + usuario.apellidos).trim());
+                sessionStorage.setItem("agrogest_usuario_rol", nombreRol(usuario.rol));
+            }
+
+            window.location.href = "perfil.html";
+        });
+    });
+})();
