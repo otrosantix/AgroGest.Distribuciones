@@ -138,6 +138,18 @@ body {
     border-color: #333;
 }
 
+/* ---------- Encabezado simple para páginas de autenticación (sin navbar) ---------- */
+.auth-header {
+    background-color: var(--blanco);
+    border-bottom: 1px solid var(--borde-suave);
+    padding: 12px 0;
+}
+
+.auth-header .navbar-brand img {
+    object-fit: contain;
+    border-radius: 50%;
+}
+
 /* ---------- Contenedores y utilidades compartidas ---------- */
 .page-main {
     padding-top: 2.25rem;
